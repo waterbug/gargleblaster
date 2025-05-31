@@ -1,0 +1,25 @@
+syntax: glob
+*~
+*.autosave
+*.bak
+*.html
+*.swp
+*.pyc
+*.pdf
+*.ps
+*.sgml
+*.tap
+*.xml
+*.egg-info
+*.egg
+*.pprj
+__main__.spec
+build
+cattens.iss
+cattens_dev.iss
+dist
+release.sh
+Output
+ipython.*
+*.pickle
+_trial_temp

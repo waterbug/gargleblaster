@@ -1,0 +1,13 @@
+{
+  "menu_name": "Marvinia",
+  "menu_items":
+    [
+      {
+        "name": "Marvin",
+        "pywscript": "${PREFIX}/Scripts/marvin-script.py",
+        "icon": "${MENU_DIR}/marvin.ico",
+        "desktop": true,
+        "quicklaunch": true
+      }
+    ]
+}

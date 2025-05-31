@@ -1,0 +1,32 @@
+package:
+  name: marvin
+  version: "4.4.dev0"
+
+source:
+  path: # [path to source]
+
+build:
+  number: 1
+  entry_points:
+          - marvin = marvin.__main__:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - menuinst
+    - pangalactic.node >=4.4.dev0
+
+about:
+  # home: [url]
+  license: NASA
+  # license_file: LICENSE
+
+app:
+  entry: marvin
+  icon: pangalacticon.ico
+  summary: "Marvin"
+

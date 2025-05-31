@@ -1,0 +1,1822 @@
+# this data should be loaded into the repository, not the client
+- _cname: Template
+  abbreviation: ''
+  comment: ''
+  create_datetime: '2019-07-30 17:49:35.741810'
+  creator: pgefobjects:admin
+  description: MDL Command and Data Handling System Template
+  frozen: false
+  fsc_code: ''
+  id: MDL_c_and_dh_system_template
+  mod_datetime: '2020-10-30 17:55:12.847314'
+  modifier: pgefobjects:admin
+  name: MDL Command and Data Handling System Template
+  oid: edb325bc-8f4d-4f91-9180-033b3847d61d
+  owner: pgefobjects:PGANA
+  parameters:
+    Cost:
+      mod_datetime: '2020-10-30 17:55:12.876395'
+      units: $
+      value: 0.0
+    P:
+      mod_datetime: '2020-10-30 17:55:12.857649'
+      units: W
+      value: 0.0
+    R_D:
+      mod_datetime: '2020-10-30 17:55:12.864136'
+      units: bit/s
+      value: 0.0
+    TRL:
+      mod_datetime: '2020-10-30 17:55:12.882376'
+      units: ''
+      value: 0
+    Vendor:
+      mod_datetime: '2020-10-30 17:55:12.870397'
+      units: ''
+      value: ''
+    depth:
+      mod_datetime: '2020-10-30 17:55:12.900569'
+      units: m
+      value: 0.0
+    height:
+      mod_datetime: '2020-10-30 17:55:12.888577'
+      units: m
+      value: 0.0
+    m:
+      mod_datetime: '2020-10-30 17:55:12.848753'
+      units: kg
+      value: 0.0
+    width:
+      mod_datetime: '2020-10-30 17:55:12.894581'
+      units: m
+      value: 0.0
+  product_type: pgefobjects:ProductType.c_and_dh_system
+  public: true
+  purpose: ''
+  specification_number: ''
+  url: ''
+  version: ''
+- _cname: Acu
+  assembly: edb325bc-8f4d-4f91-9180-033b3847d61d
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:49:35.815954'
+  creator: pgefobjects:admin
+  id: cdh_main_electronics_box
+  mod_datetime: '2020-10-30 17:49:35.815954'
+  modifier: pgefobjects:admin
+  name: Command and Data Handling System Electronics Box
+  oid: 93410ec3-e721-4d0a-b445-a9e8f69ac056
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.electronics_box
+  reference_designator: Main-Electronics
+- _cname: Product
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: TBD
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: TBD
+  oid: pgefobjects:TBD
+  owner: pgefobjects:PGANA
+  parameters: {}
+  public: true
+- _cname: Person
+  create_datetime: '2017-01-01 00:00:00'
+  description: Pan Galactic Administrator
+  first_name: TheGreatAndPowerful
+  id: admin
+  last_name: Oz
+  mod_datetime: '2017-01-01 00:00:00'
+  name: The Great And Powerful Oz
+  oid: pgefobjects:admin
+  parameters: {}
+- _cname: Person
+  create_datetime: '2019-07-30 18:31:31.365087'
+  id: pgefobjects:admin
+  mod_datetime: '2020-10-30 18:31:31.365087'
+  name: Me
+  oid: pgefobjects:admin
+  parameters: {}
+- _cname: ProductType
+  abbreviation: CDH
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  description: Command and Data Handling System
+  id: c_and_dh_system
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Command and Data Handling System
+  oid: pgefobjects:ProductType.c_and_dh_system
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Acu
+  assembly: edb325bc-8f4d-4f91-9180-033b3847d61d
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:49:35.837222'
+  creator: pgefobjects:admin
+  id: c_and_dh_system-redundancy_management_unit
+  mod_datetime: '2020-10-30 17:49:35.837222'
+  modifier: pgefobjects:admin
+  name: Command and Data Handling System Redundancy Management Unit
+  oid: b23a9a68-2b66-4677-a8c3-51924198bda2
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.redundancy_management_unit
+  reference_designator: RMU
+- _cname: Acu
+  assembly: edb325bc-8f4d-4f91-9180-033b3847d61d
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:49:35.860240'
+  creator: pgefobjects:admin
+  id: c_and_dh_system-comsec
+  mod_datetime: '2020-10-30 17:49:35.860240'
+  modifier: pgefobjects:admin
+  name: Command and Data Handling System Communications Security Box
+  oid: 3a723f1d-b6cd-472d-90fd-4e491b6a8ef9
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.comsec
+  reference_designator: COMSEC
+- _cname: Acu
+  assembly: edb325bc-8f4d-4f91-9180-033b3847d61d
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:49:35.886364'
+  creator: pgefobjects:admin
+  id: c_and_dh_system:Computer-System
+  mod_datetime: '2020-10-30 17:49:35.886364'
+  modifier: pgefobjects:admin
+  name: 'Command and Data Handling System : Computer System'
+  oid: 91d5c228-3b6e-4ad6-a15c-2396692219ae
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.computer
+  reference_designator: CompSys
+- _cname: ProductType
+  abbreviation: Box
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  description: Electronics Box
+  id: electronics_box
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Electronics Box
+  oid: pgefobjects:ProductType.electronics_box
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Comp
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: computer
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Computer System
+  oid: pgefobjects:ProductType.computer
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: COMSEC
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  description: 'Communications Security: a box to prevent unauthorized access'
+  id: comsec
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Communications Security Box
+  oid: pgefobjects:ProductType.comsec
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: RMU
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: redundancy_management_unit
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Redundancy Management Unit
+  oid: pgefobjects:ProductType.redundancy_management_unit
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Organization
+  create_datetime: '2016-03-06 00:27:56.759029'
+  id: MDL
+  mod_datetime: '2016-03-06 00:27:56.759029'
+  name: Mission Design Lab
+  oid: pgefobjects:PGANA
+  creator: pgefobjects:admin
+  modifier: pgefobjects:admin
+  owner: pgefobjects:PGANA
+- _cname: Template
+  abbreviation: ''
+  comment: ''
+  create_datetime: '2019-07-30 14:34:50.048328'
+  creator: pgefobjects:admin
+  description: ''
+  frozen: false
+  fsc_code: ''
+  id: MDL_mechanical_system_template
+  mod_datetime: '2020-10-30 14:39:08.533601'
+  modifier: pgefobjects:admin
+  name: MDL Mechanical System Template
+  oid: 0f56ad26-6e46-4da9-ae67-00a2069d1c29
+  owner: pgefobjects:PGANA
+  parameters:
+    Cost:
+      mod_datetime: '2020-10-30 17:55:12.876395'
+      units: $
+      value: 0.0
+    P:
+      mod_datetime: '2020-10-30 17:55:12.857649'
+      units: W
+      value: 0.0
+    R_D:
+      mod_datetime: '2020-10-30 17:55:12.864136'
+      units: bit/s
+      value: 0.0
+    TRL:
+      mod_datetime: '2020-10-30 17:55:12.882376'
+      units: ''
+      value: 0
+    Vendor:
+      mod_datetime: '2020-10-30 17:55:12.870397'
+      units: ''
+      value: ''
+    depth:
+      mod_datetime: '2020-10-30 17:55:12.900569'
+      units: m
+      value: 0.0
+    height:
+      mod_datetime: '2020-10-30 17:55:12.888577'
+      units: m
+      value: 0.0
+    m:
+      mod_datetime: '2020-10-30 17:55:12.848753'
+      units: kg
+      value: 0.0
+    width:
+      mod_datetime: '2020-10-30 17:55:12.894581'
+      units: m
+      value: 0.0
+  product_type: pgefobjects:ProductType.mechanical_system
+  public: true
+  purpose: ''
+  specification_number: ''
+  url: ''
+  version: ''
+- _cname: Acu
+  assembly: 0f56ad26-6e46-4da9-ae67-00a2069d1c29
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 14:34:50.121989'
+  creator: pgefobjects:admin
+  id: mech:Antenna-Gimbal
+  mod_datetime: '2020-10-30 14:34:50.121989'
+  modifier: pgefobjects:admin
+  name: 'Mech : Antenna Gimbal'
+  oid: db498b7b-fc6b-499e-b161-1e2c6927eeab
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.antenna_gimbal
+  reference_designator: AntGimbl
+- _cname: ProductType
+  abbreviation: Mech
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: mechanical_system
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Mechanical System
+  oid: pgefobjects:ProductType.mechanical_system
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Acu
+  assembly: 0f56ad26-6e46-4da9-ae67-00a2069d1c29
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 14:34:50.146245'
+  creator: pgefobjects:admin
+  id: mech:Payload-Attach-Fitting
+  mod_datetime: '2020-10-30 14:34:50.146245'
+  modifier: pgefobjects:admin
+  name: 'Mech : Payload Attach Fitting'
+  oid: dcd70197-b3be-4810-983c-a050322ce4c1
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.payload_attach_fitting
+  reference_designator: PldAchFtng
+- _cname: Acu
+  assembly: 0f56ad26-6e46-4da9-ae67-00a2069d1c29
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 14:34:50.170059'
+  creator: pgefobjects:admin
+  id: mech:Mechanical-Structure
+  mod_datetime: '2020-10-30 14:34:50.170059'
+  modifier: pgefobjects:admin
+  name: 'Mech : Mechanical Structure'
+  oid: 2b5b2301-a11b-4d4c-b24a-402e8c901950
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.mechanical_structure
+  reference_designator: MechStruct
+- _cname: Acu
+  assembly: 0f56ad26-6e46-4da9-ae67-00a2069d1c29
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 14:34:50.192917'
+  creator: pgefobjects:admin
+  id: mech:Boom
+  mod_datetime: '2020-10-30 14:34:50.192917'
+  modifier: pgefobjects:admin
+  name: 'Mech : Boom'
+  oid: 17797244-e093-479b-a252-d43a51579719
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.boom
+  reference_designator: Boom
+- _cname: Acu
+  assembly: 0f56ad26-6e46-4da9-ae67-00a2069d1c29
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 14:34:50.216806'
+  creator: pgefobjects:admin
+  id: mech:Deployment-System
+  mod_datetime: '2020-10-30 14:34:50.216806'
+  modifier: pgefobjects:admin
+  name: 'Mech : Deployment System'
+  oid: 773be6d6-c2c0-4a9e-bf83-0d77a3c5c8f5
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.deployment_system
+  reference_designator: DplmtSys
+- _cname: Acu
+  assembly: 0f56ad26-6e46-4da9-ae67-00a2069d1c29
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 14:34:50.302816'
+  creator: pgefobjects:admin
+  id: mech:Instrument-Accomodation
+  mod_datetime: '2020-10-30 14:34:50.302816'
+  modifier: pgefobjects:admin
+  name: 'Mech : Instrument Accomodation'
+  oid: 237884ed-d2b7-4e45-a17e-c93079b41f87
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.instrument_accomodation
+  reference_designator: InstrAccom
+- _cname: Acu
+  assembly: 0f56ad26-6e46-4da9-ae67-00a2069d1c29
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 14:34:50.326144'
+  creator: pgefobjects:admin
+  id: mech:Solar-Array-Actuator
+  mod_datetime: '2020-10-30 14:34:50.326144'
+  modifier: pgefobjects:admin
+  name: 'Mech : Solar Array Actuator'
+  oid: d580f9ce-9047-49b5-b8c1-2360aa2bead9
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.solar_array_actuator
+  reference_designator: SolrAryAct
+- _cname: ProductType
+  abbreviation: Boom
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: boom
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Boom
+  oid: pgefobjects:ProductType.boom
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Inst Accomodation
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: instrument_accomodation
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Instrument Accomodation
+  oid: pgefobjects:ProductType.instrument_accomodation
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Antenna Gimbal
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: antenna_gimbal
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Antenna Gimbal
+  oid: pgefobjects:ProductType.antenna_gimbal
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Payload Attach Fitting
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: payload_attach_fitting
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Payload Attach Fitting
+  oid: pgefobjects:ProductType.payload_attach_fitting
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Mechanical Structure
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: mechanical_structure
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Mechanical Structure
+  oid: pgefobjects:ProductType.mechanical_structure
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Solar Array Actuator
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: solar_array_actuator
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Solar Array Actuator
+  oid: pgefobjects:ProductType.solar_array_actuator
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Deployment System
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: deployment_system
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Deployment System
+  oid: pgefobjects:ProductType.deployment_system
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Template
+  abbreviation: ''
+  comment: ''
+  create_datetime: '2019-07-30 20:11:44.488328'
+  creator: pgefobjects:admin
+  description: ''
+  frozen: false
+  fsc_code: ''
+  id: MDL_attitude_control_system_template
+  mod_datetime: '2020-10-30 20:12:46.995094'
+  modifier: pgefobjects:admin
+  name: MDL Attitude Control System Template
+  oid: b8847ad2-675b-4506-8364-bac68651e3b6
+  owner: pgefobjects:PGANA
+  parameters:
+    Cost:
+      mod_datetime: '2020-10-30 17:55:12.876395'
+      units: $
+      value: 0.0
+    P:
+      mod_datetime: '2020-10-30 17:55:12.857649'
+      units: W
+      value: 0.0
+    R_D:
+      mod_datetime: '2020-10-30 17:55:12.864136'
+      units: bit/s
+      value: 0.0
+    TRL:
+      mod_datetime: '2020-10-30 17:55:12.882376'
+      units: ''
+      value: 0
+    Vendor:
+      mod_datetime: '2020-10-30 17:55:12.870397'
+      units: ''
+      value: ''
+    depth:
+      mod_datetime: '2020-10-30 17:55:12.900569'
+      units: m
+      value: 0.0
+    height:
+      mod_datetime: '2020-10-30 17:55:12.888577'
+      units: m
+      value: 0.0
+    m:
+      mod_datetime: '2020-10-30 17:55:12.848753'
+      units: kg
+      value: 0.0
+    width:
+      mod_datetime: '2020-10-30 17:55:12.894581'
+      units: m
+      value: 0.0
+  product_type: pgefobjects:ProductType.attitude_control_system
+  public: true
+  purpose: ''
+  specification_number: ''
+  url: ''
+  version: ''
+- _cname: Acu
+  assembly: b8847ad2-675b-4506-8364-bac68651e3b6
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 20:11:44.566190'
+  creator: pgefobjects:admin
+  id: acs:Actuator-1
+  mod_datetime: '2020-10-30 20:11:44.566190'
+  modifier: pgefobjects:admin
+  name: 'ACS : Actuator 1'
+  oid: c605498f-1468-43a4-b7d6-8e887110a526
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.actuator
+  reference_designator: Actuator-1
+- _cname: ProductType
+  abbreviation: ACS
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  description: Attitude Control Systems
+  id: attitude_control_system
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Attitude Control System
+  oid: pgefobjects:ProductType.attitude_control_system
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Acu
+  assembly: b8847ad2-675b-4506-8364-bac68651e3b6
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 20:11:44.587614'
+  creator: pgefobjects:admin
+  id: acs:Coarse-Sun-Sensor-1
+  mod_datetime: '2020-10-30 20:11:44.587614'
+  modifier: pgefobjects:admin
+  name: 'ACS : Coarse Sun Sensor 1'
+  oid: c9f3e438-c75d-4840-910a-1304012359a4
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.coarse_sun_sensor
+  reference_designator: CSS-1
+- _cname: Acu
+  assembly: b8847ad2-675b-4506-8364-bac68651e3b6
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 20:11:44.611681'
+  creator: pgefobjects:admin
+  id: acs:Digital-Sun-Sensor-1
+  mod_datetime: '2020-10-30 20:11:44.611681'
+  modifier: pgefobjects:admin
+  name: 'ACS : Digital Sun Sensor 1'
+  oid: 100bc7f4-f056-43e8-83ed-e79d14556ffc
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.digital_sun_sensor
+  reference_designator: DSS-1
+- _cname: Acu
+  assembly: b8847ad2-675b-4506-8364-bac68651e3b6
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 20:11:44.634207'
+  creator: pgefobjects:admin
+  id: acs:Control-Moment-Gyro-1
+  mod_datetime: '2020-10-30 20:11:44.634207'
+  modifier: pgefobjects:admin
+  name: 'ACS : Control Moment Gyro 1'
+  oid: 1b803c89-f175-43cd-9ffe-0ce00cfb52ba
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.control_moment_gyro
+  reference_designator: CMG-1
+- _cname: Acu
+  assembly: b8847ad2-675b-4506-8364-bac68651e3b6
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 20:11:44.657772'
+  creator: pgefobjects:admin
+  id: acs:Horizon-Sensor-1
+  mod_datetime: '2020-10-30 20:11:44.657772'
+  modifier: pgefobjects:admin
+  name: 'ACS : Horizon Sensor 1'
+  oid: ea42cfe2-eae8-43c7-ac8f-5fc51b95c1e3
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.horizon_sensor
+  reference_designator: HS-1
+- _cname: Acu
+  assembly: b8847ad2-675b-4506-8364-bac68651e3b6
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 20:11:44.681381'
+  creator: pgefobjects:admin
+  id: acs:Inertial-Measurement-Unit-1
+  mod_datetime: '2020-10-30 20:11:44.681381'
+  modifier: pgefobjects:admin
+  name: 'ACS : Inertial Measurement Unit 1'
+  oid: f0629f08-6bb6-4543-929c-d9b6ead25403
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.imu
+  reference_designator: IMU-1
+- _cname: Acu
+  assembly: b8847ad2-675b-4506-8364-bac68651e3b6
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 20:11:44.703822'
+  creator: pgefobjects:admin
+  id: acs:Inertial-Rate-Unit-1
+  mod_datetime: '2020-10-30 20:11:44.703822'
+  modifier: pgefobjects:admin
+  name: 'ACS : Inertial Rate Unit 1'
+  oid: 5209a634-840b-4e35-a74e-91115b02f700
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.iru
+  reference_designator: IRU-1
+- _cname: Acu
+  assembly: b8847ad2-675b-4506-8364-bac68651e3b6
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 20:11:44.727475'
+  creator: pgefobjects:admin
+  id: acs:Magnetometer-1
+  mod_datetime: '2020-10-30 20:11:44.727475'
+  modifier: pgefobjects:admin
+  name: 'ACS : Magnetometer 1'
+  oid: acf02cde-71d8-463a-ae57-7ab238667ce2
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.magnetometer
+  reference_designator: Magnetomtr-1
+- _cname: Acu
+  assembly: b8847ad2-675b-4506-8364-bac68651e3b6
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 20:11:44.750534'
+  creator: pgefobjects:admin
+  id: acs:Momentum-Wheel-1
+  mod_datetime: '2020-10-30 20:11:44.750534'
+  modifier: pgefobjects:admin
+  name: 'ACS : Momentum Wheel 1'
+  oid: 944a3532-5240-47fe-8983-22d2e23540bc
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.momentum_wheel
+  reference_designator: MW-1
+- _cname: Acu
+  assembly: b8847ad2-675b-4506-8364-bac68651e3b6
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 20:11:44.773188'
+  creator: pgefobjects:admin
+  id: acs:Magnetic-Torquer-1
+  mod_datetime: '2020-10-30 20:11:44.773188'
+  modifier: pgefobjects:admin
+  name: 'ACS : Magnetic Torquer 1'
+  oid: 4f747281-c40b-4a14-b1e1-49e73f1e03d9
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.magnetic_torquer
+  reference_designator: MT-1
+- _cname: Acu
+  assembly: b8847ad2-675b-4506-8364-bac68651e3b6
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 20:11:44.798204'
+  creator: pgefobjects:admin
+  id: acs:Reaction-Wheel-1
+  mod_datetime: '2020-10-30 20:11:44.798204'
+  modifier: pgefobjects:admin
+  name: 'ACS : Reaction Wheel 1'
+  oid: e71af7b5-d7cf-4a80-908d-4c6340dd9e93
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.reaction_wheel
+  reference_designator: RW-1
+- _cname: Acu
+  assembly: b8847ad2-675b-4506-8364-bac68651e3b6
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 20:11:44.824522'
+  creator: pgefobjects:admin
+  id: acs:Star-Tracker-1
+  mod_datetime: '2020-10-30 20:11:44.824522'
+  modifier: pgefobjects:admin
+  name: 'ACS : Star Tracker 1'
+  oid: bb1b5119-32dd-482e-bb7b-5093a0c33750
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.star_tracker
+  reference_designator: StarTrack-1
+- _cname: ProductType
+  abbreviation: CMG
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: control_moment_gyro
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Control Moment Gyro
+  oid: pgefobjects:ProductType.control_moment_gyro
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: IMU
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: imu
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Inertial Measurement Unit
+  oid: pgefobjects:ProductType.imu
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: HS
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: horizon_sensor
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Horizon Sensor
+  oid: pgefobjects:ProductType.horizon_sensor
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Magnetometer
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: magnetometer
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Magnetometer
+  oid: pgefobjects:ProductType.magnetometer
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: ST
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: star_tracker
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Star Tracker
+  oid: pgefobjects:ProductType.star_tracker
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: MT
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: magnetic_torquer
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Magnetic Torquer
+  oid: pgefobjects:ProductType.magnetic_torquer
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: CSS
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: coarse_sun_sensor
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Coarse Sun Sensor
+  oid: pgefobjects:ProductType.coarse_sun_sensor
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: RW
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: reaction_wheel
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Reaction Wheel
+  oid: pgefobjects:ProductType.reaction_wheel
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Actuator
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: actuator
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Actuator
+  oid: pgefobjects:ProductType.actuator
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: DSS
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: digital_sun_sensor
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Digital Sun Sensor
+  oid: pgefobjects:ProductType.digital_sun_sensor
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: IRU
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: iru
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Inertial Rate Unit
+  oid: pgefobjects:ProductType.iru
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: MW
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: momentum_wheel
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Momentum Wheel
+  oid: pgefobjects:ProductType.momentum_wheel
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Template
+  create_datetime: '2019-07-21 07:50:28.390228'
+  creator: pgefobjects:admin
+  id: MDL_propulsion_system_template
+  mod_datetime: '2020-10-21 07:50:28.390228'
+  modifier: pgefobjects:admin
+  name: MDL Propulsion System Template
+  oid: a25df101-edcb-4fe1-920b-bd43bcd040c9
+  owner: pgefobjects:PGANA
+  parameters:
+    Cost:
+      mod_datetime: '2020-10-30 17:55:12.876395'
+      units: $
+      value: 0.0
+    P:
+      mod_datetime: '2020-10-30 17:55:12.857649'
+      units: W
+      value: 0.0
+    R_D:
+      mod_datetime: '2020-10-30 17:55:12.864136'
+      units: bit/s
+      value: 0.0
+    TRL:
+      mod_datetime: '2020-10-30 17:55:12.882376'
+      units: ''
+      value: 0
+    Vendor:
+      mod_datetime: '2020-10-30 17:55:12.870397'
+      units: ''
+      value: ''
+    depth:
+      mod_datetime: '2020-10-30 17:55:12.900569'
+      units: m
+      value: 0.0
+    height:
+      mod_datetime: '2020-10-30 17:55:12.888577'
+      units: m
+      value: 0.0
+    m:
+      mod_datetime: '2020-10-30 17:55:12.848753'
+      units: kg
+      value: 0.0
+    width:
+      mod_datetime: '2020-10-30 17:55:12.894581'
+      units: m
+      value: 0.0
+  product_type: pgefobjects:ProductType.propulsion_system
+  public: true
+- _cname: Acu
+  assembly: a25df101-edcb-4fe1-920b-bd43bcd040c9
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-21 07:50:28.461313'
+  creator: pgefobjects:admin
+  id: acu-Propulsion-Filters
+  mod_datetime: '2020-10-21 07:50:28.461313'
+  modifier: pgefobjects:admin
+  name: 'acu: Filters (component Filters of Propulsion Systems)'
+  oid: cdbba145-e140-43a7-9bf5-45609afbec6d
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.propellant_filter
+  reference_designator: PrpntFltr
+- _cname: ProductType
+  abbreviation: Propulsion
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: propulsion_system
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Propulsion System
+  oid: pgefobjects:ProductType.propulsion_system
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Acu
+  assembly: a25df101-edcb-4fe1-920b-bd43bcd040c9
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-21 07:50:28.485811'
+  creator: pgefobjects:admin
+  id: acu-Propulsion-Thrusters
+  mod_datetime: '2020-10-21 07:50:28.485811'
+  modifier: pgefobjects:admin
+  name: 'acu: Thrusters (component Thrusters of Propulsion Systems)'
+  oid: 55eb3893-6b1e-495f-91a7-408192ae833e
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.thruster
+  reference_designator: Thrusters
+- _cname: Acu
+  assembly: a25df101-edcb-4fe1-920b-bd43bcd040c9
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-21 07:50:28.510280'
+  creator: pgefobjects:admin
+  id: acu-Propulsion-Tanks
+  mod_datetime: '2020-10-21 07:50:28.510280'
+  modifier: pgefobjects:admin
+  name: 'acu: Tanks (component Tanks of Propulsion Systems)'
+  oid: af961926-13f0-45bc-8f01-1ff08eb73572
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.tank
+  reference_designator: Tanks
+- _cname: ProductType
+  abbreviation: Tank
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: tank
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Tank
+  oid: pgefobjects:ProductType.tank
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Thruster
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: thruster
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Thruster
+  oid: pgefobjects:ProductType.thruster
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Filter
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: propellant_filter
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Propellant Filter
+  oid: pgefobjects:ProductType.propellant_filter
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Template
+  abbreviation: ''
+  comment: ''
+  create_datetime: '2019-07-30 18:00:51.351737'
+  creator: pgefobjects:admin
+  description: ''
+  frozen: false
+  fsc_code: ''
+  id: MDL_communications_system_template
+  mod_datetime: '2020-10-30 18:02:07.463864'
+  modifier: pgefobjects:admin
+  name: MDL Communications System Template
+  oid: 8a0fb07c-1e46-4d53-8f67-f1bf3eb56d14
+  owner: pgefobjects:PGANA
+  parameters:
+    Cost:
+      mod_datetime: '2020-10-30 17:55:12.876395'
+      units: $
+      value: 0.0
+    P:
+      mod_datetime: '2020-10-30 17:55:12.857649'
+      units: W
+      value: 0.0
+    R_D:
+      mod_datetime: '2020-10-30 17:55:12.864136'
+      units: bit/s
+      value: 0.0
+    TRL:
+      mod_datetime: '2020-10-30 17:55:12.882376'
+      units: ''
+      value: 0
+    Vendor:
+      mod_datetime: '2020-10-30 17:55:12.870397'
+      units: ''
+      value: ''
+    depth:
+      mod_datetime: '2020-10-30 17:55:12.900569'
+      units: m
+      value: 0.0
+    height:
+      mod_datetime: '2020-10-30 17:55:12.888577'
+      units: m
+      value: 0.0
+    m:
+      mod_datetime: '2020-10-30 17:55:12.848753'
+      units: kg
+      value: 0.0
+    width:
+      mod_datetime: '2020-10-30 17:55:12.894581'
+      units: m
+      value: 0.0
+  product_type: pgefobjects:ProductType.communications_system
+  public: true
+  purpose: ''
+  specification_number: ''
+  url: ''
+  version: ''
+- _cname: Acu
+  assembly: 8a0fb07c-1e46-4d53-8f67-f1bf3eb56d14
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 18:00:51.492450'
+  creator: pgefobjects:admin
+  id: communications_system-high_gain_antenna
+  mod_datetime: '2020-10-30 18:00:51.492450'
+  modifier: pgefobjects:admin
+  name: Communications System High Gain Antenna (HGA)
+  oid: c42ebadc-cd5b-42a3-a73b-c4294bb768eb
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.high_gain_antenna
+  reference_designator: HGA
+- _cname: ProductType
+  abbreviation: Comm
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: communications_system
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Communications System
+  oid: pgefobjects:ProductType.communications_system
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Acu
+  assembly: 8a0fb07c-1e46-4d53-8f67-f1bf3eb56d14
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 18:00:51.513223'
+  creator: pgefobjects:admin
+  id: communications_system-antenna
+  mod_datetime: '2020-10-30 18:00:51.513223'
+  modifier: pgefobjects:admin
+  name: Communications System Antenna
+  oid: d5f86500-138a-4c00-9a28-aea98866453e
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.antenna
+  reference_designator: LGA
+- _cname: Acu
+  assembly: 8a0fb07c-1e46-4d53-8f67-f1bf3eb56d14
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 18:00:51.537249'
+  creator: pgefobjects:admin
+  id: communications_system-antenna_gimbal
+  mod_datetime: '2020-10-30 18:00:51.537249'
+  modifier: pgefobjects:admin
+  name: Communications System Antenna Gimbal
+  oid: 9c00c2b1-2283-45d7-ae3b-bc9be13f97f3
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.antenna_gimbal
+  reference_designator: AntGimbl
+- _cname: Acu
+  assembly: 8a0fb07c-1e46-4d53-8f67-f1bf3eb56d14
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 18:00:51.561841'
+  creator: pgefobjects:admin
+  id: communications_system-transponder
+  mod_datetime: '2020-10-30 18:00:51.561841'
+  modifier: pgefobjects:admin
+  name: Communications System Transponder
+  oid: 886af3cd-f824-48ab-9f9f-e13a3e981e03
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.transponder
+  reference_designator: Xponder
+- _cname: Acu
+  assembly: 8a0fb07c-1e46-4d53-8f67-f1bf3eb56d14
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 18:00:51.586089'
+  creator: pgefobjects:admin
+  id: communications_system-diplexer
+  mod_datetime: '2020-10-30 18:00:51.586089'
+  modifier: pgefobjects:admin
+  name: Communications System Diplexer
+  oid: 2659ec8d-62f1-4502-b87d-cdd83addb326
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.diplexer
+  reference_designator: Diplexer
+- _cname: Acu
+  assembly: 8a0fb07c-1e46-4d53-8f67-f1bf3eb56d14
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 18:00:51.609311'
+  creator: pgefobjects:admin
+  id: communications_system:Medium-Gain-Antenna-(MGA)-1
+  mod_datetime: '2020-10-30 18:00:51.609311'
+  modifier: pgefobjects:admin
+  name: 'Communications System : Medium Gain Antenna (MGA) 1'
+  oid: b6edc274-03c2-46ed-88d0-d56ad80e06b6
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.medium_gain_antenna
+  reference_designator: MGA
+- _cname: Acu
+  assembly: 8a0fb07c-1e46-4d53-8f67-f1bf3eb56d14
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 18:00:51.633917'
+  creator: pgefobjects:admin
+  id: communications_system:Omni-Antenna
+  mod_datetime: '2020-10-30 18:00:51.633917'
+  modifier: pgefobjects:admin
+  name: 'Communications System : Omni Antenna'
+  oid: 34baf1c2-a29a-4a38-a043-00b93738cd75
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.omni_antenna
+  reference_designator: OmniAnt
+- _cname: Acu
+  assembly: 8a0fb07c-1e46-4d53-8f67-f1bf3eb56d14
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 18:00:51.657069'
+  creator: pgefobjects:admin
+  id: communications_system:Power-Amplifier
+  mod_datetime: '2020-10-30 18:00:51.657069'
+  modifier: pgefobjects:admin
+  name: 'Communications System : Power Amplifier'
+  oid: cbca1e28-7c2d-45c8-80f1-719b7ea1ca23
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.power_amplifier
+  reference_designator: PowerAmp
+- _cname: Acu
+  assembly: 8a0fb07c-1e46-4d53-8f67-f1bf3eb56d14
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 18:00:51.681240'
+  creator: pgefobjects:admin
+  id: communications_system:Receiver
+  mod_datetime: '2020-10-30 18:00:51.681240'
+  modifier: pgefobjects:admin
+  name: 'Communications System : Receiver'
+  oid: c6a4911e-e467-484a-a6bb-2573ba01cb98
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.receiver
+  reference_designator: Receiver
+- _cname: Acu
+  assembly: 8a0fb07c-1e46-4d53-8f67-f1bf3eb56d14
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 18:00:51.705221'
+  creator: pgefobjects:admin
+  id: communications_system:Transmitter
+  mod_datetime: '2020-10-30 18:00:51.705221'
+  modifier: pgefobjects:admin
+  name: 'Communications System : Transmitter'
+  oid: f5825ec4-e3f1-44e6-928c-c3c8edc2a13b
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.transmitter
+  reference_designator: Xmitter
+- _cname: ProductType
+  abbreviation: Power Amp
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: power_amplifier
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Power Amplifier
+  oid: pgefobjects:ProductType.power_amplifier
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Antenna
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: antenna
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Antenna
+  oid: pgefobjects:ProductType.antenna
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Xponder
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: transponder
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Transponder
+  oid: pgefobjects:ProductType.transponder
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Receiver
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: receiver
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Receiver
+  oid: pgefobjects:ProductType.receiver
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: HGA
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: high_gain_antenna
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: High Gain Antenna (HGA)
+  oid: pgefobjects:ProductType.high_gain_antenna
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: MGA
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: medium_gain_antenna
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Medium Gain Antenna (MGA)
+  oid: pgefobjects:ProductType.medium_gain_antenna
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Omni Antenna
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: omni_antenna
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Omni Antenna
+  oid: pgefobjects:ProductType.omni_antenna
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Xmitter
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: transmitter
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Transmitter
+  oid: pgefobjects:ProductType.transmitter
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Diplexer
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  description: Diplexer
+  id: diplexer
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Diplexer
+  oid: pgefobjects:ProductType.diplexer
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Template
+  abbreviation: ''
+  comment: ''
+  create_datetime: '2019-07-30 17:18:42.419591'
+  creator: pgefobjects:admin
+  description: MDL Thermal Control System Template
+  frozen: false
+  fsc_code: ''
+  id: MDL_thermal_control_system_template
+  mod_datetime: '2020-10-30 17:19:53.235007'
+  modifier: pgefobjects:admin
+  name: MDL Thermal Control System Template
+  oid: 9e020390-4e79-4b89-88e0-cecf24fb8013
+  owner: pgefobjects:PGANA
+  parameters:
+    Cost:
+      mod_datetime: '2020-10-30 17:55:12.876395'
+      units: $
+      value: 0.0
+    P:
+      mod_datetime: '2020-10-30 17:55:12.857649'
+      units: W
+      value: 0.0
+    R_D:
+      mod_datetime: '2020-10-30 17:55:12.864136'
+      units: bit/s
+      value: 0.0
+    TRL:
+      mod_datetime: '2020-10-30 17:55:12.882376'
+      units: ''
+      value: 0
+    Vendor:
+      mod_datetime: '2020-10-30 17:55:12.870397'
+      units: ''
+      value: ''
+    depth:
+      mod_datetime: '2020-10-30 17:55:12.900569'
+      units: m
+      value: 0.0
+    height:
+      mod_datetime: '2020-10-30 17:55:12.888577'
+      units: m
+      value: 0.0
+    m:
+      mod_datetime: '2020-10-30 17:55:12.848753'
+      units: kg
+      value: 0.0
+    width:
+      mod_datetime: '2020-10-30 17:55:12.894581'
+      units: m
+      value: 0.0
+  product_type: pgefobjects:ProductType.thermal_control_system
+  public: true
+  purpose: ''
+  specification_number: ''
+  url: ''
+  version: ''
+- _cname: Acu
+  assembly: 9e020390-4e79-4b89-88e0-cecf24fb8013
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:18:42.519442'
+  creator: pgefobjects:admin
+  id: thermal_control_system-radiator_panel
+  mod_datetime: '2020-10-30 17:18:42.519442'
+  modifier: pgefobjects:admin
+  name: Thermal Control System Radiator Panel
+  oid: ecef0716-9808-4f07-b44c-ac20ab55dd40
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.radiator_panel
+  reference_designator: RadtrPnl
+- _cname: ProductType
+  abbreviation: Thermal
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: thermal_control_system
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Thermal Control System
+  oid: pgefobjects:ProductType.thermal_control_system
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Acu
+  assembly: 9e020390-4e79-4b89-88e0-cecf24fb8013
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:18:42.543347'
+  creator: pgefobjects:admin
+  id: thermal_control_system-heat_pipe
+  mod_datetime: '2020-10-30 17:18:42.543347'
+  modifier: pgefobjects:admin
+  name: Thermal Control System Heat Pipe
+  oid: 3d50c117-61f0-49f8-b53d-c8af00f47459
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.heat_pipe
+  reference_designator: HeatPipe
+- _cname: Acu
+  assembly: 9e020390-4e79-4b89-88e0-cecf24fb8013
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:18:42.566046'
+  creator: pgefobjects:admin
+  id: thermal_control_system-heater
+  mod_datetime: '2020-10-30 17:18:42.566046'
+  modifier: pgefobjects:admin
+  name: Thermal Control System Heater
+  oid: d57b4987-a0dd-48ba-8968-a94617928cd1
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.heater
+  reference_designator: Heater
+- _cname: Acu
+  assembly: 9e020390-4e79-4b89-88e0-cecf24fb8013
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:18:42.589962'
+  creator: pgefobjects:admin
+  id: thermal_control_system-thermostat
+  mod_datetime: '2020-10-30 17:18:42.589962'
+  modifier: pgefobjects:admin
+  name: Thermal Control System Thermostat
+  oid: f5ed2d47-0e18-4f14-bb21-86738a228ce8
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.thermostat
+  reference_designator: Thermostat
+- _cname: Acu
+  assembly: 9e020390-4e79-4b89-88e0-cecf24fb8013
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:18:42.613323'
+  creator: pgefobjects:admin
+  id: thermal_control_system:Actuator
+  mod_datetime: '2020-10-30 17:18:42.613323'
+  modifier: pgefobjects:admin
+  name: 'Thermal Control System : Actuator'
+  oid: 5916657c-0784-43f5-80d9-3e1ff4bb2901
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.actuator
+  reference_designator: Actuator
+- _cname: Acu
+  assembly: 9e020390-4e79-4b89-88e0-cecf24fb8013
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:18:42.635959'
+  creator: pgefobjects:admin
+  id: thermal_control_system:Multi-Layer-Insulation
+  mod_datetime: '2020-10-30 17:18:42.635959'
+  modifier: pgefobjects:admin
+  name: 'Thermal Control System : Multi Layer Insulation'
+  oid: 66f006a8-eac7-4bcd-8874-4736ea1e0547
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.multi_layer_insulation
+  reference_designator: MltLyrInsl
+- _cname: Acu
+  assembly: 9e020390-4e79-4b89-88e0-cecf24fb8013
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:18:42.660018'
+  creator: pgefobjects:admin
+  id: thermal_control_system:Temperature-Sensor
+  mod_datetime: '2020-10-30 17:18:42.660018'
+  modifier: pgefobjects:admin
+  name: 'Thermal Control System : Temperature Sensor'
+  oid: c1abff2c-f6e3-40f3-b638-d996ec65e037
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.temperature_sensor
+  reference_designator: TempSensor
+- _cname: Acu
+  assembly: 9e020390-4e79-4b89-88e0-cecf24fb8013
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:18:42.683405'
+  creator: pgefobjects:admin
+  id: thermal_control_system:Thermal-Louver
+  mod_datetime: '2020-10-30 17:18:42.683405'
+  modifier: pgefobjects:admin
+  name: 'Thermal Control System : Thermal Louver'
+  oid: cc4b6f12-6f44-457a-b459-13a56d9a79d5
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.thermal_louver
+  reference_designator: ThermLver
+- _cname: Acu
+  assembly: 9e020390-4e79-4b89-88e0-cecf24fb8013
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:18:42.706119'
+  creator: pgefobjects:admin
+  id: thermal_control_system:Thermal-Coating
+  mod_datetime: '2020-10-30 17:18:42.706119'
+  modifier: pgefobjects:admin
+  name: 'Thermal Control System : Thermal Coating'
+  oid: 81644af9-7d85-4bc5-bde3-89daec3c6037
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.thermal_coating
+  reference_designator: ThermCtng
+- _cname: Acu
+  assembly: 9e020390-4e79-4b89-88e0-cecf24fb8013
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:18:42.730057'
+  creator: pgefobjects:admin
+  id: thermal_control_system:Thermal-Controller
+  mod_datetime: '2020-10-30 17:18:42.730057'
+  modifier: pgefobjects:admin
+  name: 'Thermal Control System : Thermal Controller'
+  oid: 13fe4435-ab27-4124-bfc1-f51eaded1b6e
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.thermal_controller
+  reference_designator: ThermCtrlr
+- _cname: Acu
+  assembly: 9e020390-4e79-4b89-88e0-cecf24fb8013
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-30 17:18:42.752725'
+  creator: pgefobjects:admin
+  id: thermal_control_system:Thermal-Strap
+  mod_datetime: '2020-10-30 17:18:42.752725'
+  modifier: pgefobjects:admin
+  name: 'Thermal Control System : Thermal Strap'
+  oid: ff92e7ba-7a8a-4b9d-9032-4534bb9f77df
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.thermal_strap
+  reference_designator: ThermStrap
+- _cname: ProductType
+  abbreviation: Heater
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: heater
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Heater
+  oid: pgefobjects:ProductType.heater
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Thermal Coating
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: thermal_coating
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Thermal Coating
+  oid: pgefobjects:ProductType.thermal_coating
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Thermal Strap
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: thermal_strap
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Thermal Strap
+  oid: pgefobjects:ProductType.thermal_strap
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Radiator
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: radiator_panel
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Radiator Panel
+  oid: pgefobjects:ProductType.radiator_panel
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Thermal Controller
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: thermal_controller
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Thermal Controller
+  oid: pgefobjects:ProductType.thermal_controller
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Thermostat
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: thermostat
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Thermostat
+  oid: pgefobjects:ProductType.thermostat
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Louver
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: thermal_louver
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Thermal Louver
+  oid: pgefobjects:ProductType.thermal_louver
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Multi Layer Insulation
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: multi_layer_insulation
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Multi Layer Insulation
+  oid: pgefobjects:ProductType.multi_layer_insulation
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Heat Pipe
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: heat_pipe
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Heat Pipe
+  oid: pgefobjects:ProductType.heat_pipe
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Temp Sensor
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: temperature_sensor
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Temperature Sensor
+  oid: pgefobjects:ProductType.temperature_sensor
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Template
+  create_datetime: '2019-07-21 07:50:16.108268'
+  creator: pgefobjects:admin
+  id: MDL_power_system_template
+  mod_datetime: '2020-10-21 07:50:16.108268'
+  modifier: pgefobjects:admin
+  name: MDL Power System Template
+  oid: b43006c8-9f39-442a-9dc4-2bb7bff15b61
+  owner: pgefobjects:PGANA
+  parameters:
+    Cost:
+      mod_datetime: '2020-10-30 17:55:12.876395'
+      units: $
+      value: 0.0
+    P:
+      mod_datetime: '2020-10-30 17:55:12.857649'
+      units: W
+      value: 0.0
+    R_D:
+      mod_datetime: '2020-10-30 17:55:12.864136'
+      units: bit/s
+      value: 0.0
+    TRL:
+      mod_datetime: '2020-10-30 17:55:12.882376'
+      units: ''
+      value: 0
+    Vendor:
+      mod_datetime: '2020-10-30 17:55:12.870397'
+      units: ''
+      value: ''
+    depth:
+      mod_datetime: '2020-10-30 17:55:12.900569'
+      units: m
+      value: 0.0
+    height:
+      mod_datetime: '2020-10-30 17:55:12.888577'
+      units: m
+      value: 0.0
+    m:
+      mod_datetime: '2020-10-30 17:55:12.848753'
+      units: kg
+      value: 0.0
+    width:
+      mod_datetime: '2020-10-30 17:55:12.894581'
+      units: m
+      value: 0.0
+  product_type: pgefobjects:ProductType.power_system
+  public: true
+- _cname: Acu
+  assembly: b43006c8-9f39-442a-9dc4-2bb7bff15b61
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-21 07:50:16.178777'
+  creator: pgefobjects:admin
+  id: acu-Electrical Power-Battery
+  mod_datetime: '2020-10-21 07:50:16.178777'
+  modifier: pgefobjects:admin
+  name: 'acu: Battery (component Battery of Electrical Power System)'
+  oid: 1a8affd1-eb89-40f3-9476-be4faa72d485
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.battery
+  reference_designator: Battery
+- _cname: ProductType
+  abbreviation: Power
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: power_system
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Power System
+  oid: pgefobjects:ProductType.power_system
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Acu
+  assembly: b43006c8-9f39-442a-9dc4-2bb7bff15b61
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-21 07:50:16.202096'
+  creator: pgefobjects:admin
+  id: acu-Electrical Power-Solar Arrays
+  mod_datetime: '2020-10-21 07:50:16.202096'
+  modifier: pgefobjects:admin
+  name: 'acu: Solar Arrays (component Solar Arrays of Electrical Power System)'
+  oid: c82d41f9-0a02-4d0b-a259-229f631d0465
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.solar_array
+  reference_designator: SolarArray
+- _cname: Acu
+  assembly: b43006c8-9f39-442a-9dc4-2bb7bff15b61
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-21 07:50:16.226742'
+  creator: pgefobjects:admin
+  id: acu-Electrical Power-SA Gimbals
+  mod_datetime: '2020-10-21 07:50:16.226742'
+  modifier: pgefobjects:admin
+  name: 'acu: SA Gimbals (component SA Gimbals of Electrical Power System)'
+  oid: 382dde60-f1d0-44bd-8a14-c290c179b871
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.antenna_gimbal
+  reference_designator: SA-Gimbal
+- _cname: ProductType
+  abbreviation: Solar Array
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: solar_array
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Solar Array
+  oid: pgefobjects:ProductType.solar_array
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: ProductType
+  abbreviation: Batt
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: battery
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Battery
+  oid: pgefobjects:ProductType.battery
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Template
+  create_datetime: '2019-07-21 07:19:33.844313'
+  creator: pgefobjects:admin
+  id: MDL_spacecraft_template
+  mod_datetime: '2020-10-21 07:19:33.844313'
+  modifier: pgefobjects:admin
+  name: MDL Spacecraft Template
+  oid: 424d6f37-190a-44e8-b38c-e70e8c13cb91
+  owner: pgefobjects:PGANA
+  parameters:
+    Cost:
+      mod_datetime: '2020-10-30 17:55:12.876395'
+      units: $
+      value: 0.0
+    P:
+      mod_datetime: '2020-10-30 17:55:12.857649'
+      units: W
+      value: 0.0
+    R_D:
+      mod_datetime: '2020-10-30 17:55:12.864136'
+      units: bit/s
+      value: 0.0
+    TRL:
+      mod_datetime: '2020-10-30 17:55:12.882376'
+      units: ''
+      value: 0
+    Vendor:
+      mod_datetime: '2020-10-30 17:55:12.870397'
+      units: ''
+      value: ''
+    depth:
+      mod_datetime: '2020-10-30 17:55:12.900569'
+      units: m
+      value: 0.0
+    height:
+      mod_datetime: '2020-10-30 17:55:12.888577'
+      units: m
+      value: 0.0
+    m:
+      mod_datetime: '2020-10-30 17:55:12.848753'
+      units: kg
+      value: 0.0
+    width:
+      mod_datetime: '2020-10-30 17:55:12.894581'
+      units: m
+      value: 0.0
+  product_type: pgefobjects:ProductType.spacecraft
+  public: true
+- _cname: Acu
+  assembly: 424d6f37-190a-44e8-b38c-e70e8c13cb91
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-21 07:19:33.982246'
+  creator: pgefobjects:admin
+  id: acu-Spacecraft-Mechanical
+  mod_datetime: '2020-10-21 07:19:33.982246'
+  modifier: pgefobjects:admin
+  name: 'acu: Mechanical Structures (component Mechanical of Spacecraft)'
+  oid: f36c4598-35a3-496a-b5e7-f56f5326a96d
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.mechanical_system
+  reference_designator: MechSys
+- _cname: ProductType
+  abbreviation: SC
+  create_datetime: '2017-01-01 00:00:00'
+  creator: pgefobjects:admin
+  id: spacecraft
+  mod_datetime: '2017-01-01 00:00:00'
+  modifier: pgefobjects:admin
+  name: Spacecraft
+  oid: pgefobjects:ProductType.spacecraft
+  owner: pgefobjects:PGANA
+  parameters: {}
+- _cname: Acu
+  assembly: 424d6f37-190a-44e8-b38c-e70e8c13cb91
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-21 07:19:34.008563'
+  creator: pgefobjects:admin
+  id: acu-Spacecraft-Comm
+  mod_datetime: '2020-10-21 07:19:34.008563'
+  modifier: pgefobjects:admin
+  name: 'acu: Communications (component Comm of Spacecraft)'
+  oid: 3db6fe80-560f-423e-82f4-09ffbc168721
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.communications_system
+  reference_designator: CommSys
+- _cname: Acu
+  assembly: 424d6f37-190a-44e8-b38c-e70e8c13cb91
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-21 07:19:34.034559'
+  creator: pgefobjects:admin
+  id: acu-Spacecraft-C&DH
+  mod_datetime: '2020-10-21 07:19:34.034559'
+  modifier: pgefobjects:admin
+  name: 'acu: Command and Data Handling (component C&DH of Spacecraft)'
+  oid: 40b5eb20-ad49-4535-b201-a4d3b14acc5d
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.c_and_dh_system
+  reference_designator: CDH
+- _cname: Acu
+  abbreviation: ''
+  assembly: 424d6f37-190a-44e8-b38c-e70e8c13cb91
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-21 07:19:34.062154'
+  creator: pgefobjects:admin
+  description: ''
+  id: acu-Spacecraft-Electrical-Power
+  mod_datetime: '2020-10-21 07:31:06.441603'
+  modifier: pgefobjects:admin
+  name: 'acu: Electrical Power System (component Electrical Power of Spacecraft)'
+  oid: daa7355e-e8de-4a38-950e-0d7e335168b5
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.power_system
+  quantity: 0
+  reference_designator: PowerSys
+  url: ''
+- _cname: Acu
+  assembly: 424d6f37-190a-44e8-b38c-e70e8c13cb91
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-21 07:19:34.091987'
+  creator: pgefobjects:admin
+  id: acu-Spacecraft-Thermal
+  mod_datetime: '2020-10-21 07:19:34.091987'
+  modifier: pgefobjects:admin
+  name: 'acu: Thermal Control System (component Thermal of Spacecraft)'
+  oid: a4d557a4-b284-49b2-8fd0-8498f7e17f6d
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.thermal_control_system
+  reference_designator: ThermSys
+- _cname: Acu
+  assembly: 424d6f37-190a-44e8-b38c-e70e8c13cb91
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-21 07:19:34.118477'
+  creator: pgefobjects:admin
+  id: acu-Spacecraft-Propulsion
+  mod_datetime: '2020-10-21 07:19:34.118477'
+  modifier: pgefobjects:admin
+  name: 'acu: Propulsion Systems (component Propulsion of Spacecraft)'
+  oid: 9c0780c3-a55f-48e0-add9-decafde70f54
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.propulsion_system
+  reference_designator: PropSys
+- _cname: Acu
+  assembly: 424d6f37-190a-44e8-b38c-e70e8c13cb91
+  component: pgefobjects:TBD
+  create_datetime: '2019-07-21 07:19:34.146951'
+  creator: pgefobjects:admin
+  id: Spacecraft:Attitude-Control-System
+  mod_datetime: '2020-10-21 07:19:34.146951'
+  modifier: pgefobjects:admin
+  name: 'Spacecraft : Attitude Control System'
+  oid: 5243c387-fd3e-4864-a79a-f84c32b4f08b
+  parameters: {}
+  product_type_hint: pgefobjects:ProductType.attitude_control_system
+  reference_designator: ACS
