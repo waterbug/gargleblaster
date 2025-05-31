@@ -3,6 +3,7 @@ syntax: glob
 *.autosave
 *.bak
 *.html
+*.key
 *.swp
 *.pyc
 *.pdf
@@ -15,10 +16,12 @@ syntax: glob
 *.pprj
 __main__.spec
 build
+bump_version.sh
 cattens.iss
 cattens_dev.iss
 dist
 release.sh
+sedscr
 Output
 ipython.*
 *.pickle
