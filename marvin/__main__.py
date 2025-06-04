@@ -45,14 +45,14 @@ def main():
     # server has a CA-signed cert, server_cert.pem will be ignored if present
     app_config['self_signed_cert'] = False
     # map from LDAP search dialog field display names to "dir_info" fields
-    app_config['ldap_schema'] = {'UUPIC': 'oid',
-                                 'AUID': 'id',
+    app_config['ldap_schema'] = {'OID': 'oid',
+                                 'userid': 'id',
                                  'First Name': 'first_name',
                                  'Last Name': 'last_name',
                                  'MI or Name': 'mi_or_name',
                                  'Email': 'email',
-                                 'Employer': 'employer_name',
-                                 'Code': 'org_code'}
+                                 'Employer': 'employer_name'
+                                 }
     # these state items are used to populate default prefs, and can later be
     # reverted to ...
     # 2018-03-26: per MDL, add h, w, d to default parameters
