@@ -28,18 +28,13 @@ def main():
     if release_mode == 'dev':
         app_config['app_name'] = 'Marvin_dev'
         # dev host
-        app_config['host'] = 'marvin.pangalactic.us'
-        app_config['port'] = 443
     elif release_mode == 'test':
         app_config['app_name'] = 'Marvin_test'
         # dev host
-        app_config['host'] = 'marvin.pangalactic.us'
-        app_config['port'] = 443
     else:
+        # "production" release
         app_config['app_name'] = 'Marvin'
         # production host
-        app_config['host'] = 'marvin.pangalactic.us'
-        app_config['port'] = 443
     # self_signed_cert -> the server's cert is self-signed, so it must be
     # present in the home directory as the server_cert.pem file; if the
     # server has a CA-signed cert, server_cert.pem will be ignored if present
@@ -109,34 +104,29 @@ def main():
         TLS = False
     # create a marvin home directory in the user's home dir
     app_home_dir = ''
+    user_home = ''
     if sys.platform == 'win32':
         user_home = os.path.join(os.environ.get('USERPROFILE'))
-        if os.path.exists(user_home):
-            if TEST:
-                # if TEST mode, make home dir 'marvin_home_test'
-                app_home_dir = os.path.join(user_home, 'marvin_home_test')
-            else:
-                # for dev release, make home dir 'marvin_home_dev'
-                # for production release, make home dir 'marvin_home'
-                app_home_dir = os.path.join(user_home, 'marvin_home_dev')
     else:
         # Linux or OSX
         user_home = os.environ.get('HOME')
-        if user_home:
-            if TEST:
-                # if TEST mode, make home dir 'marvin_home_test'
-                app_home_dir = os.path.join(user_home, 'marvin_home_test')
-            else:
-                # for dev release, make home dir 'marvin_home_dev'
-                # for production release, make home dir 'marvin_home'
-                app_home_dir = os.path.join(user_home, 'marvin_home_dev')
+    if os.path.exists(user_home):
+        if TEST:
+            # if TEST mode, make home dir 'marvin_home_test'
+            app_home_dir = os.path.join(user_home, 'marvin_home_test')
+        elif release_mode == "dev":
+            # for dev release, make home dir 'marvin_home_dev'
+            app_home_dir = os.path.join(user_home, 'marvin_home_dev')
+        else:
+            # for production release, make home dir 'marvin_home'
+            app_home_dir = os.path.join(user_home, 'marvin_home')
     # if all else fails, create 'marvin_home' inside the current directory --
     # not desirable because 'marvin_home' holds user data that needs to
     # persist when a new version of the client is "installed", which typically
     # destroys the current directory.  TODO:  generate warnings if this option
     # is used.
     if not app_home_dir:
-        app_home_dir = os.path.join(os.getcwd(), 'marvin_home_dev')
+        app_home_dir = os.path.join(os.getcwd(), 'marvin_home')
     if not os.path.exists(app_home_dir):
         os.makedirs(app_home_dir, mode=0o755)
     if not os.path.exists(app_home_dir):
@@ -146,39 +136,39 @@ def main():
     config.update(app_config)
     ##########################################################################
     # The following steps [1]-[7] copy files into known locations within the
-    # "marvin_home"/"marvin_home_dev" directory -- a bit messy, but it works
+    # app_home directory -- a bit messy, but it works
     ##########################################################################
     # [1] create a "vault" directory in app_home
     vault_dir = os.path.join(app_home_dir, 'vault')
     if not os.path.exists(vault_dir):
         os.makedirs(vault_dir, mode=0o755)
-    # [2] copy doc files from marvin_doc_path** into the home directory
-    #     ** NOTE: marvin_doc_path will only exist if marvin has been
+    # [2] copy doc files from doc_path** into app_home_dir
+    #     ** NOTE: doc_path will only exist if marvin has been
     #     installed
     #     (a) as a conda package or
     #     (b) as a pyinstaller dist
-    #     ... i.e., it is not part of the marvin python package but is copied
-    #     into the marvin module by running setup.py, conda, or pyinstaller)
+    #     ... i.e., it is not part of the marvin module but is copied
+    #     into it by running setup.py, conda build, or pyinstaller)
     marvin_mod_path = marvin.__path__[0]
-    marvin_doc_path = os.path.join(marvin_mod_path, 'doc')
+    doc_path = os.path.join(marvin_mod_path, 'doc')
     doc_dir = os.path.join(app_home_dir, 'docs')
-    if os.path.exists(marvin_doc_path):
+    if os.path.exists(doc_path):
         if os.path.exists(doc_dir):
             current_doc_files = set(os.listdir(doc_dir))
-            marvin_doc_files = set([s for s in os.listdir(marvin_doc_path)
+            marvin_doc_files = set([s for s in os.listdir(doc_path)
                               if (not s.startswith('__init__')
                               and not s.startswith('__pycache__'))
                               ])
             docs_to_copy = marvin_doc_files - current_doc_files
             for d in docs_to_copy:
-                shutil.copy(os.path.join(marvin_doc_path, d), doc_dir)
+                shutil.copy(os.path.join(doc_path, d), doc_dir)
         else:
             # if 'docs' dir does not exist in marvin_home, the entire doc tree
             # is copied over to create it (e.g., if home/doc is removed, it
             # will be "refreshed" ... a possible way to update the distributed
             # docs ...)
-            shutil.copytree(marvin_doc_path, doc_dir)
-    # [3] if we are running on Windows and pyinstaller installed us, there will
+            shutil.copytree(doc_path, doc_dir)
+    # [3] if we are running on Windows as a pyinstaller dist, there will
     #     be a 'casroot' directory that contains files needed by pythonocc --
     #     copy them to home and set "CASROOT" env var ...
     if sys.platform == 'win32':
@@ -192,7 +182,7 @@ def main():
                 shutil.rmtree(casroot_home, ignore_errors=True)
             shutil.copytree(casroot_path, casroot_home)
             os.environ['CASROOT'] = casroot_home
-    # [4] copy test data files from test/data into the "test_data" directory
+    # [4] copy test data files from marvin.test.data into the "test_data" dir
     test_data_dir = os.path.join(app_home_dir, 'test_data')
     current_test_files = set()
     if os.path.exists(test_data_dir):
