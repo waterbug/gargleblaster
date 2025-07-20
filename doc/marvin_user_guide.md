@@ -12,13 +12,14 @@
 ## Run Marvin
 
 The first time Marvin starts up, it will create a directory called either
-***marvin_home*** (for the production version) or
-***marvin_home_dev*** (for the development version).  In that directory it
-will create a local database and it will load some reference data, which will
-take a minute or two.  Once the initial start up has loaded the reference data,
-subsequent start ups of Marvin will just take a few seconds.
+***marvin_home*** (for a production version) or
+***marvin_home_dev*** (for a development version).  In that directory it
+will save its configuration and create a local database.
 
 ## Generate a Public/Private Key Pair...
+
+This step is only required if you plan to connect Marvin to a
+**pangalactic.vger** repository service.
 
 1. In the Marvin *Output* menu:
 
@@ -26,23 +27,24 @@ subsequent start ups of Marvin will just take a few seconds.
 
 ... select the menu item *Generate a Public/Private Key Pair*
 This generates a pair of encrypted keys that are used in the single-sign-on
-process that **Marvin** uses to log in to its Repository Service.
+process that **Marvin** uses to log in to a **pangalactic.vger** repository
+service.
 
-2.  Email the *public.key* file to the **Marvin** admin -- the
-*public.key* file for the production version of **Marvin** on Windows is
-located here:  
+2.  Send the *public.key* file to the administrator of the repository service
+to which you plan to connect -- the *public.key* file for a production
+version of **Marvin** on Windows is located here:  
 
-**C:\\Users\\[your AUID]\\marvin_home\\public.key**
+**C:\\Users\\[your userid]\\marvin_home\\public.key**
 
-... and for the development version on Windows it is here:  
+... and for a development version on Windows it is here:  
 
-**C:\\Users\\[your AUID]\\marvin_home_dev\\public.key**
+**C:\\Users\\[your userid]\\marvin_home_dev\\public.key**
 
 On the Mac, the locations are:
 
-**/Users/[your AUID]/marvin_home/public.key**
+**/Users/[your userid]/marvin_home/public.key**
 and
-**/Users/[your AUID]/marvin_home_dev/public.key**
+**/Users/[your userid]/marvin_home_dev/public.key**
 
 ![public key file](images/public_key_file.png "public key file")
 
@@ -54,17 +56,18 @@ because it is used by **Marvin** and will be used by any future version of
 **Marvin** you install.  The same **marvin.key** file is used by both
 **Marvin** and **Marvindev**.
 
-## Login to the Repository Service
+## Login to a Repository Service
 
-After you have emailed your *public.key* file to the Marvin Admin, you can log
-in.
+After you have sent your *public.key* file to the repository administrator and
+the administrator has added it to the repository authentication database, you
+can log in.
 
 When the *Repository Service* icon in the **Tool Bar** is clicked,
 **Marvin** will use the *marvin.key* file to do a transparent
-single-sign-on login to the Repository Service.  *Note that the Repository
+single-sign-on login to the repository service.  *Note that the Repository
 Service icon is a toggle -- you use it to log in or to log out.*
 
-When you log in to the Repository Service, **Marvin** will:
+When you log in to the repository service, **Marvin** will:
 
 1.  Get the names of **Projects** on which you have been assigned
     **Roles**.  (This may result in **Projects** being added or removed in the

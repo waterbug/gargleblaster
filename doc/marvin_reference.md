@@ -159,19 +159,6 @@ encoded into [YAML]("https://en.wikipedia.org/wiki/YAML").  Clicking this menu
 item displays a file dialog so the user can select an appropriate name and
 location for the file that is created.
 
-### Generate a Public/Private Key Pair...
-
-Generates a pair of encrypted keys for use in theserver login
-process.  The **public key** (*public.key*) will be written into the
-*marvin_home* directory, which is located in the user's home directory.  The
-**private key** (*private.key*) is written into the *.creds* subdirectory of
-*marvin_home*, and it should not be moved.  The user should email the
-*public.key* file to theadministrator when requesting a user
-account.  After that, the *public.key* file is no longer needed by **Marvin**.
-When the *Network Login* icon in the **Tool Bar** is clicked, the **Marvin**
-client will use the *private.key* file to do a transparent single-sign-on login
-to theserver.
-
 ## Menu: Create New Objects
 
 The **Create New Objects** menu provides functions to create new
@@ -497,62 +484,6 @@ created within that project will continue to exist -- only the **Project**
 itself is deleted.
 
 ![Project Selector Right-Clicked (context menu)](images/project_selector_menu.png "Project Selector Right-Clicked")
-
-## Network Login / Logout
-
-When the mouse hovers over the **Network Login/Logout** button, a "tooltip" is
-displayed, as shown below, **Connect to the message bus**:
-
-![Repository Service](images/network_login.png "Repository Service")
-
-The **Marvin** client auto-connects to the Repository Service by default,
-but the user can un-check that "Auto-connect at startup" option if desired.
-
-The **Repository Service** button is a toggle, so clicking on it while
-connected will disconnect from the **Message Bus**.  The
-*connected* / *disconnected* status is shown by the *network status indicator*
-in the lower right corner of the main window:
-
-![Network Status: Connected](images/status_connected.png "Network Status: Connected")  
-
-![Network Status: Disconnected](images/status_disconnected.png "Network Status: Disconnected")
-
-
-Once the user logs in to the **Repository Service**, the **Marvin** client
-begins a programmed set of network interactions that synchronize its local
-database with the repository.  The initial interactions upon connection
-include:
-
-1.  Get the list of **Projects** to which the user has access.
-    (The **Project Names** for any such projects will being added to the
-    **Project Selector**.)
-2.  Subscribe to the channels on which those **Projects** publish events, such
-    as the addition of new **Systems** and **Components** to the **Project**.
-3.  Synchronize the **Parameter Definitions** in the local database with those
-    in the repository (this will include both getting from the repository any
-    new **Parameter Definitions** and saving to the repository any new
-    **Parameter Definitions** created by the user).
-4.  Local user-created objects are saved to the repository (or deleted, if they
-    were deleted locally since the last login and are not being used in a
-    **Project**).
-5.  Any new (since last login) objects in the repository **Hardware Library**
-    are fetched and added to the local database.
-6.  The currently selected **Project** is synced:  the current state of its
-    assembly tree is replicated locally and any objects that have been added to
-    the **Project** (such as **Project Requirements**) since the last login are
-    fetched and added to the local database.
-7.  The user's assigned **Role(s)** in the current **Project** will be
-    displayed in the **Status Bar** (in the status label next to the *network
-    status indicator*) if the current project is a collaborative project -- if
-    it is a local project, the status label will say "**[local]**".
-
-Once the initial sync is completed, the **Marvin** client will listen for
-events on the message bus, such as additions or modifications of objects, and
-will update itself accordingly in real-time.
-
-Whenever the user switches to a different project using the **Project
-Selector**, the sync operation (step 6 above) is executed for the newly
-selected **Project**.
 
 # User Interface Modes
 
