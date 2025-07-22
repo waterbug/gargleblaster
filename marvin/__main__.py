@@ -2,6 +2,15 @@
 """
 Marvin gui application
 """
+# to ensure no output unless specified ...
+import sys
+import os
+
+if sys.stdout is None:
+    sys.stdout = open(os.devnull, "w")
+if sys.stderr is None:
+    sys.stderr = open(os.devnull, "w")
+
 import argparse, os, shutil, sys
 
 import marvin
