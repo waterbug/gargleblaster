@@ -5,7 +5,7 @@ Setup script for Marvin.
 import os, site
 from setuptools import setup, find_packages
 
-VERSION = '4.4.dev1'
+VERSION = '4.4.dev2'
 
 sitepkg_dir = [p for p in site.getsitepackages()
                if p.endswith('site-packages')][0]
@@ -28,7 +28,7 @@ setup(
     author="Stephen Waterbury",
     author_email="stephen.c.waterbury@nasa.gov",
     install_requires=[
-        'pangalactic.node>=4.4.dev1'
+        'pangalactic.node>=4.4.dev2'
         ],
     keywords='',
     maintainer="Stephen Waterbury",
