@@ -94,7 +94,7 @@ def main():
                              '[default: "cryptosign" (pubkey auth)]')
     args = parser.parse_args()
     # use True for DEBUG default setting (SCW 2018-12-23) ...
-    DEBUG = config.get('debug', True) or args.debug
+    DEBUG = config.get('debug') or args.debug
     # use True for TEST to load test data (SCW 2025-01-19) ...
     TEST = config.get('test', False) or args.test
     # use tls unless testing in a non-secure env
@@ -201,8 +201,8 @@ def main():
     # [6] add application-specific (in this case, Marvin-specific) reference
     # and test data to the PanGalactic reference data (p.core.refdata)
     refdata.core += data.data
-    # output logging to console if either TEST or DEBUG is True
-    console = TEST or DEBUG
+    # output logging to console if DEBUG is True
+    console = DEBUG
     base_name = app_config['app_base_name']
     run(app_home=app_home_dir, app_base_name=base_name,
         app_version=app_version, release_mode=release_mode, splash_image=None,
