@@ -21,7 +21,7 @@
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#overview-the-marvin-architecture">Overview: The Marvin Architecture</a></li>
+<li><a href="#overview-the-pan-galactic-engineering-framework-architecture">Overview: The Pan Galactic Engineering Framework Architecture</a></li>
 <li><a href="#a-word-about-nomenclature">A Word About Nomenclature …</a></li>
 <li><a href="#main-window-elements">Main Window Elements</a>
 <ul>
@@ -105,11 +105,11 @@
 </ul></li>
 </ul>
 </nav>
-<h1 id="overview-the-marvin-architecture">Overview: The Marvin Architecture</h1>
-<p><strong>Marvin</strong> is a Collaborative Model-Based Engineering (MBE) framework, consisting of a <strong>Desktop Client</strong>, a network <strong>Message Bus</strong>, and a repository service network interface that provides access to a <strong>Systems Database</strong> and <strong>Systems and Components Library</strong>, as shown in the diagram below.</p>
-<p>This reference document is primarily focused on the application structure of the <strong>Marvin Desktop Client</strong> and includes a <strong><a href="#glossary">Glossary</a>)</strong> of terms related to the objects that <strong>Marvin</strong> creates and manages.</p>
+<h1 id="overview-the-pan-galactic-engineering-framework-architecture">Overview: The Pan Galactic Engineering Framework Architecture</h1>
+<p>The <strong>Pan Galactic Engineering Framework</strong> is a Collaborative Model-Based Engineering (MBE) framework, consisting of a desktop client (<strong>Marvin</strong>), a network message bus (<a href="https://github.com/crossbario/crossbar"><strong>Crossbar</strong></a>), and a repository service (<strong>VGER</strong>) that provides access to a <strong>Systems Database</strong>, as shown in the diagram below.</p>
+<p>This reference document is primarily focused on the application structure of the <strong>Marvin</strong> desktop client. It includes a <strong><a href="#glossary">Glossary</a>)</strong> of terms related to the <strong>Pan Galactic</strong> domain objects that <strong>Marvin</strong> creates and manages.</p>
 <figure>
-<img src="images/marvin_arch.png" title="Marvin Architecture" alt="" /><figcaption>Marvin Architecture</figcaption>
+<img src="images/marvin_arch.png" title="Pan Galactic Architecture" alt="" /><figcaption>Pan Galactic Architecture</figcaption>
 </figure>
 <h1 id="a-word-about-nomenclature">A Word About Nomenclature …</h1>
 <p>In the manufacturing domain, there are many terms for the concept of <em>designed artifact</em>, e.g. <strong>System</strong>, <strong>Subsystem</strong>, <strong>Component</strong>, <strong>Part</strong>. The general term most widely used in engineering data standards is <strong><a href="#product-a.k.a.-system-subsystem-component-part">“Product”</a></strong> – hence, <strong>PGEF</strong> uses the term <strong>Product</strong> for all of those items. The use of the more general term <strong>Product</strong> is simply a convention and in no way limits the types of information and models that can be associated with an artifact, independently of whether it is referred to in some contexts as a <strong>System</strong> (a complex <strong>Product</strong> with internal structure and behaviors) and in others a <strong>Component</strong> (a <strong>Product</strong> used in the assembly of another <strong>Product</strong>).</p>

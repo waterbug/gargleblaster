@@ -1,18 +1,20 @@
 % Marvin Reference
 
-# Overview:  The Marvin Architecture
+# Overview:  The Pan Galactic Engineering Framework Architecture
 
-**Marvin**  is a Collaborative
-Model-Based Engineering (MBE) framework, consisting of a **Desktop Client**, a
-network **Message Bus**, and a repository service network interface that
-provides access to a **Systems Database** and **Systems and Components
-Library**, as shown in the diagram below.
+The **Pan Galactic Engineering Framework** is a Collaborative Model-Based
+Engineering (MBE) framework, consisting of a desktop client (**Marvin**), a
+network message bus
+([**Crossbar**](https://github.com/crossbario/crossbar)), and a repository
+service (**VGER**) that provides access to a **Systems Database**, as shown in
+the diagram below.
 
 This reference document is primarily focused on the application structure of
-the **Marvin Desktop Client** and includes a **[Glossary](#glossary))** of
-terms related to the objects that **Marvin** creates and manages.
+the **Marvin** desktop client. It includes a **[Glossary](#glossary))** of
+terms related to the **Pan Galactic** domain objects that **Marvin** creates
+and manages.
 
-![Marvin Architecture](images/marvin_arch.png "Marvin Architecture")
+![Pan Galactic Architecture](images/marvin_arch.png "Pan Galactic Architecture")
 
 # A Word About Nomenclature ...
 
