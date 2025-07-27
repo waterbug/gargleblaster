@@ -193,7 +193,7 @@ A **[Requirement](#requirement)** is typically owned (defined and managed) by
 an **Organization**, and when a new **Requirement** is defined,
 **Gargleblaster** assigns the currently selected **Project** as its ***owner***
 (the ***owner*** field is on the **info** tab of the **[Object
-Editor](#object-viewer-editor)**) -- note that that is just a default
+Editor](#object-viewereditor)**) -- note that that is just a default
 assignment of ***owner***, and can be modified by the ***creator*** of the
 **Requirement** (i.e. the user who is editing it).  The ***id*** attribute also
 gets a default prefix from the **Project** ***id*** -- for example, the figure
@@ -270,7 +270,7 @@ will be case-sensitive if the **case sensitive** box is checked; otherwise it
 will be case-insensitive (the default).  The user can view details about any
 item in the library by right-clicking on the item (which displays a context
 menu) and then selecting **"View this object"**, which will display the item in
-the **[Object Viewer/Editor](#object-viewer-editor)**.
+the **[Object Viewer/Editor](#object-viewereditor)**.
 
 ![Systems and Components (Hardware Products) Library Dialog](images/hw_lib_dlg.png "Systems and Components (Hardware Products) Library Dialog")
 
@@ -352,13 +352,13 @@ if the **case sensitive** box is checked; otherwise it will be
 case-insensitive (the default).  The user can view details about any item in
 the library by right-clicking on the item (which displays a context menu) and
 then selecting **"View this object"**, which will display the item in the
-**[Object Viewer/Editor](#object-viewer-editor)**.
+**[Object Viewer/Editor](#object-viewereditor)**.
 
 The **Parameter Definitions Library** supports *drag-and-drop*: the user can
 click and drag any item in the library and drop it onto the **parameters
-panel** in the **[Object Viewer/Editor](#object-viewer-editor)** to assign a
+panel** in the **[Object Viewer/Editor](#object-viewereditor)** to assign a
 **Parameter** to an object.  See the
-**[Object Viewer/Editor](#object-viewer-editor)** section for details on how
+**[Object Viewer/Editor](#object-viewereditor)** section for details on how
 the *drag-and-drop* process for adding a **Parameter** works.
 
 ![Parameter Definitions Library Dialog](images/pd_lib_dlg.png "Parameter Definitions Library Dialog")
@@ -385,7 +385,7 @@ if the **case sensitive** box is checked; otherwise it will be
 case-insensitive (the default).  The user can view details about any item in
 the library by right-clicking on the item (which displays a context menu) and
 then selecting **"View this object"**, which will display the item in the
-**[Object Viewer/Editor](#object-viewer-editor)**.
+**[Object Viewer/Editor](#object-viewereditor)**.
 
 ![Data Element Definitions Library Dialog](images/de_defs_lib_dlg.png "Data Element Definitions Library Dialog")
 
