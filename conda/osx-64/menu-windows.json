@@ -1,11 +1,11 @@
 {
-  "menu_name": "Cattenza",
+  "menu_name": "Garg",
   "menu_items":
     [
       {
         "name": "Marvin",
-        "pywscript": "${PREFIX}/Scripts/marvin-script.py",
-        "icon": "${MENU_DIR}/marvin.ico",
+        "pywscript": "${PREFIX}/Scripts/gargleblaster-script.py",
+        "icon": "${MENU_DIR}/pangalacticon.ico",
         "desktop": true,
         "quicklaunch": true
       }

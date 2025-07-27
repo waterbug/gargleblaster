@@ -3,13 +3,13 @@ General Notes
 =============
 
 To run pyinstaller, cp either win_main.spec (on Windows) or mac_main.spec (on
-OSX) to marvin/marvin/__main__.spec and execute this command:
+OSX) to gargleblaster/gargleblaster/__main__.spec and execute this command:
 
     pyinstaller __main__.spec
 
 If successful this will create 2 subdirectories, 'dist' and 'build'
 In the 'build' dir there should be a directory 'cattenza' that contains all
-generated files, including one called 'run_marvin', the executable.
+generated files, including one called 'run_gargleblaster', the executable.
 
 ------------------------------------
 Twisted runtime hook bug work-around
@@ -83,7 +83,7 @@ them.
 Library/share/oce ... which contains a "src" directory with data files (which
 is part of the conda installation).
 
-  - copy Library/share/opencascade directory to marvin_home/casroot and set
+  - copy Library/share/opencascade directory to gargleblaster_home/casroot and set
     that as "CASROOT" env variable.
 
 =============
@@ -110,11 +110,11 @@ PyQt5 Qt5Core.dll work-around
 -----------------------------
 
 Error in pyinstaller-created stuff when trying to run
-'run_marvin.exe' in Windows Command Prompt:
+'run_gargleblaster.exe' in Windows Command Prompt:
 
     ImportError: unable to find Qt5Core.dll on PATH
 
-... but './run_marvin.exe' works in gitbash.
+... but './run_gargleblaster.exe' works in gitbash.
 
 WORK-AROUND:  fix_qt_import_error.py
 (must be imported before any PyQt stuff)

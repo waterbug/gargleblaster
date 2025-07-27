@@ -1,60 +1,60 @@
-% Marvin User Guide
+% Gargleblaster User Guide
 
 # Quick Start
 
-## Install Marvin
+## Install Gargleblaster
 
-* On Windows, run *marvin_x.x_setup.exe* as you would any Windows app
+* On Windows, run *gargleblaster_x.x_setup.exe* as you would any Windows app
   installer.
-* On Mac, follow the instructions in the *Marvin_MAC_README.txt* file,
+* On Mac, follow the instructions in the *Gargleblaster_MAC_README.txt* file,
   which you should find in the same location as the Mac "installer".
 
-## Run Marvin
+## Run Gargleblaster
 
-The first time Marvin starts up, it will create a directory called either
-***marvin_home*** (for a production version) or
-***marvin_home_dev*** (for a development version).  In that directory it
+The first time Gargleblaster starts up, it will create a directory called either
+***gargleblaster_home*** (for a production version) or
+***gargleblaster_home_dev*** (for a development version).  In that directory it
 will save its configuration and create a local database.
 
 ## Generate a Public/Private Key Pair...
 
-This step is only required if you plan to connect Marvin to a
+This step is only required if you plan to connect Gargleblaster to a
 **pangalactic.vger** repository service.
 
-1. In the Marvin *Output* menu:
+1. In the Gargleblaster *Output* menu:
 
 ![Output Menu](images/output_menu.png "Menu: Output")
 
 ... select the menu item *Generate a Public/Private Key Pair*
 This generates a pair of encrypted keys that are used in the single-sign-on
-process that **Marvin** uses to log in to a **pangalactic.vger** repository
-service.
+process that **Gargleblaster** uses to log in to a **pangalactic.vger**
+repository service.
 
 2.  Send the *public.key* file to the administrator of the repository service
 to which you plan to connect -- the *public.key* file for a production
-version of **Marvin** on Windows is located here:  
+version of **Gargleblaster** on Windows is located here:  
 
-**C:\\Users\\[your userid]\\marvin_home\\public.key**
+**C:\\Users\\[your userid]\\gargleblaster_home\\public.key**
 
 ... and for a development version on Windows it is here:  
 
-**C:\\Users\\[your userid]\\marvin_home_dev\\public.key**
+**C:\\Users\\[your userid]\\gargleblaster_home_dev\\public.key**
 
 On the Mac, the locations are:
 
-**/Users/[your userid]/marvin_home/public.key**
+**/Users/[your userid]/gargleblaster_home/public.key**
 and
-**/Users/[your userid]/marvin_home_dev/public.key**
+**/Users/[your userid]/gargleblaster_home_dev/public.key**
 
 ![public key file](images/public_key_file.png "public key file")
 
 (After you email it to the admin, you no longer need the *public.key* file.)
 
-The *private key* is a file called **marvin.key** which is located in your
-profile folder (a.k.a. your "home directory").  Take care not to delete it
-because it is used by **Marvin** and will be used by any future version of
-**Marvin** you install.  The same **marvin.key** file is used by both
-**Marvin** and **Marvindev**.
+The *private key* is a file called **gargleblaster.key** which is located in
+your profile folder (a.k.a. your "home directory").  Take care not to delete it
+because it is used by **Gargleblaster** and will be used by any future version
+of **Gargleblaster** you install.  The same **gargleblaster.key** file is used
+by both **Gargleblaster** and **Gargleblasterdev**.
 
 ## Login to a Repository Service
 
@@ -63,11 +63,11 @@ the administrator has added it to the repository authentication database, you
 can log in.
 
 When the *Repository Service* icon in the **Tool Bar** is clicked,
-**Marvin** will use the *marvin.key* file to do a transparent
+**Gargleblaster** will use the *gargleblaster.key* file to do a transparent
 single-sign-on login to the repository service.  *Note that the Repository
 Service icon is a toggle -- you use it to log in or to log out.*
 
-When you log in to the repository service, **Marvin** will:
+When you log in to the repository service, **Gargleblaster** will:
 
 1.  Get the names of **Projects** on which you have been assigned
     **Roles**.  (This may result in **Projects** being added or removed in the
@@ -81,7 +81,7 @@ When you log in to the repository service, **Marvin** will:
 5.  Display your assigned **Role(s)** in the current **Project** in the
     **Status Bar** (the label next to the *network status indicator*).
 
-Once the initial sync is completed, **Marvin** will listen for events,
+Once the initial sync is completed, **Gargleblaster** will listen for events,
 such as additions or modifications of objects, and will update in real-time.
 
 Whenever you switch to a different project using the **Project Selector**, the
@@ -91,9 +91,9 @@ Project sync operation (step 4 above) is executed for the newly selected
 
 # How To
 
-## Switch Modes in Marvin
+## Switch Modes in Gargleblaster
 
-The **Marvin** GUI has 3 interface **modes** of operation:
+The **Gargleblaster** GUI has 3 interface **modes** of operation:
 
 * **[Component Modeler]**
 * **[System Modeler]**
@@ -104,7 +104,7 @@ Buttons** in the top right corner of the window, as shown in the figure below.
 The currently selected **mode** is indicated by which button is in the
 *clicked* state (toggled *on*).  The buttons are shown here with **[System
 Modeler](#systems-modeler)** **mode** selected (that is the default mode).
-When you exit **Marvin**, it will remember the **mode** you are in and
+When you exit **Gargleblaster**, it will remember the **mode** you are in and
 will return you to that **mode** the next time it starts up.
 
 ![Mode Buttons](images/mode_buttons.png "Mode Buttons")
@@ -313,7 +313,7 @@ either *Remove this component* or *Remove this function*.
 
 ## Create a New System or Component
 
-Marvin has 2 ways to do that:
+Gargleblaster has 2 ways to do that:
 
 1. **[Use the System/Component Wizard](#use-the-systemcomponent-wizard)** ...  
    In the **Create** menu, select the option
@@ -343,7 +343,7 @@ their **owner** project or organization.
 
 ## Clone an Object
 
-**Cloning** in **Marvin** simply means creating a copy of an object.  In
+**Cloning** in **Gargleblaster** simply means creating a copy of an object.  In
 general, the clone will have the same property values, parameter values, and data values
 as the original object.
 
@@ -351,7 +351,7 @@ A clone is created by clicking on the **Clone** button in the
 **[Object Viewer/Editor](#use-the-object-viewereditor)**
 -- if the object being cloned is a **white box** (its components are
 specified), a dialog will be displayed with various options (see details
-below); if the object is a **black box**, **Marvin** will immediately create
+below); if the object is a **black box**, **Gargleblaster** will immediately create
 the clone and switch to **[Component Modeler]** mode with the new clone set as
 the subject, and you can begin editing it as necessary.  The clone will
 automatically be assigned a new *id*, but you should edit its *name* and
@@ -586,7 +586,7 @@ columns you want displayed for a given object type by right-clicking on the
 headers, which displays a context menu, and choosing the **select columns**
 option, which will display all the attributes of the current object type and
 you can just check the attributes you want to see and uncheck the ones to hide.
-**Marvin** will remember your choices and will use them the next time you
+**Gargleblaster** will remember your choices and will use them the next time you
 go into **Local DB** mode.
 
 ## Set Preferred Units
@@ -594,7 +594,7 @@ go into **Local DB** mode.
 Preferred units can be set using either the *Edit Preferences* item in the
 *Tools* menu or by right-clicking on the **Systems Dashboard** headers and
 selecting *set preferred units*.  When you have set the preferred units for
-a specified set of dimensions, **Marvin** will use your preferred units when
+a specified set of dimensions, **Gargleblaster** will use your preferred units when
 displaying any parameter that has those dimensions in both the **[Systems
 Dashboard](#system-modeler)** and the **[Object
 Viewer/Editor](#use-the-object-viewereditor)**,

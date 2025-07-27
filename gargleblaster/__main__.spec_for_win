@@ -58,16 +58,16 @@ image_paths = [(os.path.join(image_mod_path, p),
 occ_pkg_path = os.path.dirname(OCC.__file__)
 casroot = os.path.join(occ_pkg_path, '..', '..', '..',
                        'Library', 'share', 'opencascade')
-casroot_paths = [(casroot, os.path.join('marvin', 'casroot'))]
+casroot_paths = [(casroot, os.path.join('gargleblaster', 'casroot'))]
 platforms = os.path.join(occ_pkg_path, '..', '..', '..',
                          'Library', 'plugins', 'platforms')
 platforms_paths = [(platforms, 'platforms')]
 
 data_files = [(os.path.join('test', 'data'),
-               os.path.join('marvin', 'test', 'data')),
+               os.path.join('gargleblaster', 'test', 'data')),
               (os.path.join('..', 'doc'),
-               os.path.join('marvin', 'doc')),
-              ('images', os.path.join('marvin', 'images'))
+               os.path.join('gargleblaster', 'doc')),
+              ('images', os.path.join('gargleblaster', 'images'))
              ]
 data_files += onto_paths
 data_files += data_paths
@@ -81,7 +81,7 @@ data_files += casroot_paths
 data_files += platforms_paths
 
 a = Analysis(['__main__.py'],
-             pathex=['C:\\Users\\waterbug\\clones\\marvin\\marvin'],
+             pathex=['C:\\Users\\waterbug\\clones\\gargleblaster\\gargleblaster'],
              binaries=[('C:\\Users\\waterbug\\miniforge3\\Library\\bin\\TKOpenGl.dll',
                         'bin')],
              datas=data_files,
@@ -195,7 +195,7 @@ exe = EXE(pyz,
           a.scripts,
           [],
           exclude_binaries=True,
-          name='run_marvin',
+          name='run_gargleblaster',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
@@ -207,5 +207,5 @@ coll = COLLECT(exe,
                a.datas,
                strip=False,
                upx=True,
-               name='marv')
+               name='garg')
 

@@ -53,9 +53,9 @@ and start the container:
 
 In some situations, the **vger_x.x.x** container can lose its connection to
 **crossbar** and be unreachable -- although the **vger_x.x.x** container may
-still be running, **Marvin** will display an error message when attempting to
-login to the repository. In those situations, the **vger_x.x.x** container must
-be stopped and then started again.
+still be running, **Gargleblaster** will display an error message when
+attempting to login to the repository. In those situations, the **vger_x.x.x**
+container must be stopped and then started again.
 
 To stop the **vger_x.x.x** container properly, it is necessary to use the the
 *-t* flag with the docker *stop* command in order to give **vger** a suitable

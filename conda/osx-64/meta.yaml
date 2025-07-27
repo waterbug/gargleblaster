@@ -1,5 +1,5 @@
 package:
-  name: marvin
+  name: gargleblaster
   version: "4.4.dev2"
 
 source:
@@ -8,7 +8,7 @@ source:
 build:
   number: 1
   entry_points:
-          - marvin = marvin.__main__:main
+          - gargleblaster = gargleblaster.__main__:main
 
 requirements:
   build:
@@ -26,7 +26,7 @@ about:
   # license_file: LICENSE
 
 app:
-  entry: marvin
+  entry: gargleblaster
   icon: pangalacticon.ico
-  summary: "Marvin"
+  summary: "Gargleblaster"
 

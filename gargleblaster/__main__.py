@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Marvin gui application
+Gargleblaster gui application
 """
 # to ensure no output unless specified ...
 import sys
@@ -13,10 +13,10 @@ if sys.stderr is None:
 
 import argparse, os, shutil, sys
 
-import marvin
-from marvin import __version__ as app_version
-from marvin import data
-from marvin.test import data as marvin_test_data_mod
+import gargleblaster
+from gargleblaster import __version__ as app_version
+from gargleblaster import data
+from gargleblaster.test import data as gargleblaster_test_data_mod
 
 
 def main():
@@ -24,25 +24,25 @@ def main():
     from pangalactic.node.pangalaxian import run
     # NOTE: pangalactic.core.test[data|vault] and pangalactic.core.ontology
     # need to be imported here so that if we are running the "pyinstaller"
-    # installed version of marvin, the data files in those modules can be
-    # accessed.
+    # installed version of gargleblaster, the data files in those modules can
+    # be accessed.
     import pangalactic.core.ontology
     import pangalactic.core.test.data
     import pangalactic.core.test.vault
     app_config = {}
-    app_config['app_base_name'] = 'Marvin'
+    app_config['app_base_name'] = 'Gargleblaster'
     release_mode = "dev"
     # config:  localized settings; user can edit
     # default configuration:
     if release_mode == 'dev':
-        app_config['app_name'] = 'Marvin_dev'
+        app_config['app_name'] = 'Gargleblaster_dev'
         # dev host
     elif release_mode == 'test':
-        app_config['app_name'] = 'Marvin_test'
+        app_config['app_name'] = 'Gargleblaster_test'
         # dev host
     else:
         # "production" release
-        app_config['app_name'] = 'Marvin'
+        app_config['app_name'] = 'Gargleblaster'
         # production host
     # self_signed_cert -> the server's cert is self-signed, so it must be
     # present in the home directory as the server_cert.pem file; if the
@@ -111,7 +111,7 @@ def main():
     if args.unencrypted:
         # cmd line arg overrides config
         TLS = False
-    # create a marvin home directory in the user's home dir
+    # create a gargleblaster home directory in the user's home dir
     app_home_dir = ''
     user_home = ''
     if sys.platform == 'win32':
@@ -121,21 +121,21 @@ def main():
         user_home = os.environ.get('HOME')
     if os.path.exists(user_home):
         if TEST:
-            # if TEST mode, make home dir 'marvin_home_test'
-            app_home_dir = os.path.join(user_home, 'marvin_home_test')
+            # if TEST mode, make home dir 'gargleblaster_home_test'
+            app_home_dir = os.path.join(user_home, 'gargleblaster_home_test')
         elif release_mode == "dev":
-            # for dev release, make home dir 'marvin_home_dev'
-            app_home_dir = os.path.join(user_home, 'marvin_home_dev')
+            # for dev release, make home dir 'gargleblaster_home_dev'
+            app_home_dir = os.path.join(user_home, 'gargleblaster_home_dev')
         else:
-            # for production release, make home dir 'marvin_home'
-            app_home_dir = os.path.join(user_home, 'marvin_home')
-    # if all else fails, create 'marvin_home' inside the current directory --
-    # not desirable because 'marvin_home' holds user data that needs to
-    # persist when a new version of the client is "installed", which typically
-    # destroys the current directory.  TODO:  generate warnings if this option
-    # is used.
+            # for production release, make home dir 'gargleblaster_home'
+            app_home_dir = os.path.join(user_home, 'gargleblaster_home')
+    # if all else fails, create 'gargleblaster_home' inside the current
+    # directory -- not desirable because 'gargleblaster_home' holds user data
+    # that needs to persist when a new version of the client is "installed",
+    # which typically destroys the current directory.  TODO:  generate warnings
+    # if this option is used.
     if not app_home_dir:
-        app_home_dir = os.path.join(os.getcwd(), 'marvin_home')
+        app_home_dir = os.path.join(os.getcwd(), 'gargleblaster_home')
     if not os.path.exists(app_home_dir):
         os.makedirs(app_home_dir, mode=0o755)
     if not os.path.exists(app_home_dir):
@@ -152,36 +152,36 @@ def main():
     if not os.path.exists(vault_dir):
         os.makedirs(vault_dir, mode=0o755)
     # [2] copy doc files from doc_path** into app_home_dir
-    #     ** NOTE: doc_path will only exist if marvin has been
+    #     ** NOTE: doc_path will only exist if gargleblaster has been
     #     installed
     #     (a) as a conda package or
     #     (b) as a pyinstaller dist
-    #     ... i.e., it is not part of the marvin module but is copied
+    #     ... i.e., it is not part of the gargleblaster module but is copied
     #     into it by running setup.py, conda build, or pyinstaller)
-    marvin_mod_path = marvin.__path__[0]
-    doc_path = os.path.join(marvin_mod_path, 'doc')
+    gargleblaster_mod_path = gargleblaster.__path__[0]
+    doc_path = os.path.join(gargleblaster_mod_path, 'doc')
     doc_dir = os.path.join(app_home_dir, 'docs')
     if os.path.exists(doc_path):
         if os.path.exists(doc_dir):
             current_doc_files = set(os.listdir(doc_dir))
-            marvin_doc_files = set([s for s in os.listdir(doc_path)
+            gargleblaster_doc_files = set([s for s in os.listdir(doc_path)
                               if (not s.startswith('__init__')
                               and not s.startswith('__pycache__'))
                               ])
-            docs_to_copy = marvin_doc_files - current_doc_files
+            docs_to_copy = gargleblaster_doc_files - current_doc_files
             for d in docs_to_copy:
                 shutil.copy(os.path.join(doc_path, d), doc_dir)
         else:
-            # if 'docs' dir does not exist in marvin_home, the entire doc tree
-            # is copied over to create it (e.g., if home/doc is removed, it
-            # will be "refreshed" ... a possible way to update the distributed
-            # docs ...)
+            # if 'docs' dir does not exist in gargleblaster_home, the entire
+            # doc tree is copied over to create it (e.g., if home/doc is
+            # removed, it will be "refreshed" ... a possible way to update the
+            # distributed docs ...)
             shutil.copytree(doc_path, doc_dir)
     # [3] if we are running on Windows as a pyinstaller dist, there will
     #     be a 'casroot' directory that contains files needed by pythonocc --
     #     copy them to home and set "CASROOT" env var ...
     if sys.platform == 'win32':
-        casroot_path = os.path.join(marvin_mod_path, 'casroot')
+        casroot_path = os.path.join(gargleblaster_mod_path, 'casroot')
         casroot_home = os.path.join(app_home_dir, 'casroot')
         if os.path.exists(casroot_path):
             # copy all casroot files to home dir at startup
@@ -191,24 +191,28 @@ def main():
                 shutil.rmtree(casroot_home, ignore_errors=True)
             shutil.copytree(casroot_path, casroot_home)
             os.environ['CASROOT'] = casroot_home
-    # [4] copy test data files from marvin.test.data into the "test_data" dir
+    # [4] copy test data files from gargleblaster.test.data into the
+    # "test_data" dir
     test_data_dir = os.path.join(app_home_dir, 'test_data')
     current_test_files = set()
     if os.path.exists(test_data_dir):
         current_test_files = set(os.listdir(test_data_dir))
     else:
         os.makedirs(test_data_dir, mode=0o755)
-    marvin_data_mod_path = marvin_test_data_mod.__path__[0]
-    marvin_data_files = set([s for s in os.listdir(marvin_data_mod_path)
+    gargleblaster_data_mod_path = gargleblaster_test_data_mod.__path__[0]
+    gargleblaster_data_files = set([s for s
+                              in os.listdir(gargleblaster_data_mod_path)
                               if (not s.startswith('__init__')
                               and not s.startswith('__pycache__'))
                               ])
-    marvin_data_to_copy = marvin_data_files - current_test_files
-    if marvin_data_to_copy:
-        for p in marvin_data_to_copy:
-            shutil.copy(os.path.join(marvin_data_mod_path, p), test_data_dir)
-    # [6] add application-specific (in this case, Marvin-specific) reference
-    # and test data to the PanGalactic reference data (p.core.refdata)
+    gargleblaster_data_to_copy = gargleblaster_data_files - current_test_files
+    if gargleblaster_data_to_copy:
+        for p in gargleblaster_data_to_copy:
+            shutil.copy(os.path.join(gargleblaster_data_mod_path, p),
+                                     test_data_dir)
+    # [6] add application-specific (in this case, Gargleblaster-specific)
+    # reference and test data to the pangalactic reference data
+    # (p.core.refdata)
     refdata.core += data.data
     # output logging to console if DEBUG is True
     console = DEBUG

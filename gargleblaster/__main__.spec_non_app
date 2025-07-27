@@ -44,14 +44,14 @@ ref_db_paths = [(os.path.join(ref_db_mod_path, p),
 occ_pkg_path = os.path.dirname(OCC.__file__)
 casroot = os.path.join(occ_pkg_path, '..', '..', '..', '..',
                        'share', 'opencascade')
-casroot_paths = [(casroot, os.path.join('marvin', 'casroot'))]
+casroot_paths = [(casroot, os.path.join('gargleblaster', 'casroot'))]
 platforms = os.path.join(occ_pkg_path, '..', '..', '..', '..',
                          'plugins', 'platforms')
 platforms_paths = [(platforms, 'platforms')]
 
-data_files = [('test/data', 'marvin/test/data'),
-              ('../doc', 'marvin/doc'),
-              ('images', 'marvin/images')
+data_files = [('test/data', 'gargleblaster/test/data'),
+              ('../doc', 'gargleblaster/doc'),
+              ('images', 'gargleblaster/images')
              ]
 data_files += onto_paths
 data_files += data_paths
@@ -63,7 +63,7 @@ data_files += casroot_paths
 data_files += platforms_paths
 
 a = Analysis(['__main__.py'],
-             pathex=['/Users/waterbug/clones/marvin/marvin'],
+             pathex=['/Users/waterbug/clones/gargleblaster/gargleblaster'],
              binaries=[],
              datas=data_files,
              hiddenimports=['_sysconfigdata', 'pangalactic.core',
@@ -155,7 +155,7 @@ exe = EXE(pyz,
           a.scripts,
           [],
           exclude_binaries=True,
-          name='run_marvin',
+          name='run_gargleblaster',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
@@ -167,5 +167,5 @@ coll = COLLECT(exe,
                a.datas,
                strip=False,
                upx=True,
-               name='marv')
+               name='garg')
 

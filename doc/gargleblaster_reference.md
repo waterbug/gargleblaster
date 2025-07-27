@@ -1,20 +1,20 @@
-% Marvin Reference
+% Gargleblaster Reference
 
 # Overview:  The Pan Galactic Engineering Framework Architecture
 
 The **Pan Galactic Engineering Framework** is a Collaborative Model-Based
-Engineering (MBE) framework, consisting of a desktop client (**Marvin**), a
-network message bus
+Engineering (MBE) framework, consisting of a desktop client
+(**Gargleblaster**), a network message bus
 ([**Crossbar**](https://github.com/crossbario/crossbar)), and a repository
 service (**VGER**) that provides access to a **Systems Database**, as shown in
 the diagram below.
 
 This reference document is primarily focused on the application structure of
-the **Marvin** desktop client. It includes a **[Glossary](#glossary))** of
-terms related to the **Pan Galactic** domain objects that **Marvin** creates
+the **Gargleblaster** desktop client. It includes a **[Glossary](#glossary))** of
+terms related to the **Pan Galactic** domain objects that **Gargleblaster** creates
 and manages.
 
-![Pan Galactic Architecture](images/marvin_arch.png "Pan Galactic Architecture")
+![Pan Galactic Architecture](images/gargleblaster_arch.png "Pan Galactic Architecture")
 
 # A Word About Nomenclature ...
 
@@ -29,21 +29,21 @@ independently of whether it is referred to in some contexts as a **System** (a
 complex **Product** with internal structure and behaviors) and in others a
 **Component** (a **Product** used in the assembly of another **Product**).
 
-**PGEF** generally uses the term **System** in the context of a ***white
-box*** model of a **Product** (i.e., one in which the internal structures
-and/or interfaces of the **Product** are known) and **Component** in the
-context of a ***black box*** model (in which only the attributes and external
-shape and/or interfaces are known or relevant).  **Marvin** is designed to
-support the multi-disciplinary nature of **Product** models, so for any given
-**Product**, **Marvin** can maintain and track its relationships to multiple
-***white box*** and ***black box*** models.  Indeed, it is perfectly normal for
-a **Product** to have several types of models, some of which are ***white
-boxes*** and some ***black boxes***, developed and used by discipline engineers
-in various design and analysis contexts.
+**PGEF** generally uses the term **System** in the context of a ***white box***
+model of a **Product** (i.e., one in which the internal structures and/or
+interfaces of the **Product** are known) and **Component** in the context of a
+***black box*** model (in which only the attributes and external shape and/or
+interfaces are known or relevant).  **Gargleblaster** is designed to support
+the multi-disciplinary nature of **Product** models, so for any given
+**Product**, **Gargleblaster** can maintain and track its relationships to
+multiple ***white box*** and ***black box*** models.  Indeed, it is perfectly
+normal for a **Product** to have several types of models, some of which are
+***white boxes*** and some ***black boxes***, developed and used by discipline
+engineers in various design and analysis contexts.
 
 # Main Window Elements
 
-The **Marvin** application **Main Window** consists of a **Tool Bar**, a
+The **Gargleblaster** application **Main Window** consists of a **Tool Bar**, a
 central area with various widgets (such as a **Dashboard** and a **System
 Tree**), and a **Status Bar** at the bottom, which displays messages regarding
 network interactions and local database events.  Many of the labels and buttons
@@ -87,26 +87,26 @@ is shown by messages in the status bar.
 
 #### An Important Note about Importing Data from Exported Data Files
 
-Note that although **Marvin** can import data from a file that has been
+Note that although **Gargleblaster** can import data from a file that has been
 created using the **Export Project to a File...** function (which uses a
-Marvin-specific serialization), importing data that contains objects that
+Gargleblaster-specific serialization), importing data that contains objects that
 were created by other users should not be done by a non-administrative user
 because of data synchronization issues with the repository:  when the user logs
 in after importing data, the repository sync process will delete any objects
 not created by the local user unless they already exist in the repository.
 That is because the repository only allows users to save objects that they
-create or are authorized to modify, so when **Marvin** sends data to the
+create or are authorized to modify, so when **Gargleblaster** sends data to the
 repository for synchronization and the data contains an object that was created
 by another user but the object is not present in the repository, the repository
 assumes that the object was deleted either by its creator or by an authorized
 user, so the repository will not save the object and will instruct
-**Marvin** to delete the object from its local database.
+**Gargleblaster** to delete the object from its local database.
 
 For the above reasons, if a user wants to recreate all or part of a saved
 database or project that contains objects created by other users, the best way
 to do that is to send the exported file to the repository administrator and ask
 them to load it; then if the user is assigned a role in the project(s) or
-organization(s) that own(s) the data, their **Marvin** client will receive
+organization(s) that own(s) the data, their **Gargleblaster** client will receive
 that data in the sync process the next time the user connects to the
 repository.
 
@@ -120,7 +120,7 @@ The **Output** menu provides functions to export data or objects.
 
 Enables the user to export the currently selected **[Project](#project)**
 (including all its systems and their assemblies) to a file, which can be saved
-as a backup.  The exported file can later be imported into **Marvin** using
+as a backup.  The exported file can later be imported into **Gargleblaster** using
 the [Import Project from a File](#import-project-from-a-file...) function --
 however, see the
 *[important note about importing data](#an-important-note-about-importing-data-from-exported-data-files)*.
@@ -138,7 +138,7 @@ function can migrate the imported data to the new schema -- however, see the
 Enables the user to export the set of **[Requirements](#requirement)**
 applicable to the currently selected **[Project](#project)** to a file, which
 can be saved as a backup.  The exported file can later be imported into
-**Marvin** using the
+**Gargleblaster** using the
 [Import Project Requirements from a File](#import-project-requirements-from-a-file...)
 function -- however, see the
 *[important note about importing data](#an-important-note-about-importing-data-from-exported-data-files)*.
@@ -190,15 +190,15 @@ Displays a wizard (see figure below) in which the user can create a new
 **[Performance Requirement](#performance-requirement)**.
 
 A **[Requirement](#requirement)** is typically owned (defined and managed) by
-an **Organization**, and when a new **Requirement** is defined, **Marvin**
-assigns the currently selected **Project** as its ***owner*** (the ***owner***
-field is on the **info** tab of the **[Object Editor](#object-viewer-editor)**)
--- note that that is just a default assignment of ***owner***, and can be
-modified by the ***creator*** of the **Requirement** (i.e. the user who is
-editing it).  The ***id*** attribute also gets a default prefix from the
-**Project** ***id*** -- for example, the figure shows the ***id*** prefix as
-"**SANDBOX**", since it was created while the *SANDBOX* **Project** was
-selected.
+an **Organization**, and when a new **Requirement** is defined,
+**Gargleblaster** assigns the currently selected **Project** as its ***owner***
+(the ***owner*** field is on the **info** tab of the **[Object
+Editor](#object-viewer-editor)**) -- note that that is just a default
+assignment of ***owner***, and can be modified by the ***creator*** of the
+**Requirement** (i.e. the user who is editing it).  The ***id*** attribute also
+gets a default prefix from the **Project** ***id*** -- for example, the figure
+shows the ***id*** prefix as "**SANDBOX**", since it was created while the
+*SANDBOX* **Project** was selected.
 
 It is also worth noting that, as explained in the
 **[Project Requirements Manager](#project-requirements-manager)** section
@@ -212,7 +212,7 @@ below, the **Project Requirements Manager** function will display all
 
 The **Tools** menu provides functions for various tasks such as editing the
 user's preferences, displaying libraries in separate windows, and some
-administrative tasks such as updating **Marvin**.
+administrative tasks such as updating **Gargleblaster**.
 
 ![Tools](images/tools_menu.png "Menu: Tools")
 
@@ -489,7 +489,7 @@ itself is deleted.
 
 # User Interface Modes
 
-The **Marvin** GUI has four interface **modes** of operation:
+The **Gargleblaster** GUI has four interface **modes** of operation:
 
 * **[Component Modeler]**
 * **[Systems Modeler]**
@@ -500,7 +500,7 @@ A **mode** is entered by clicking on one of the four **Mode Buttons** in the
 top right corner of the user interface, as shown in the figure below.  Just to
 the left of the **Mode Buttons** is the **Mode Indicator**, which shows the
 currently selected **mode**.  The buttons are shown here with **[Systems
-Modeler](#systems-modeler)** **mode** selected.  When you exit **Marvin**, it
+Modeler](#systems-modeler)** **mode** selected.  When you exit **Gargleblaster**, it
 will remember the **mode** you are in and will return you to that **mode** the
 next time it starts up.
 
@@ -521,7 +521,7 @@ in the Main Window), as shown below, and that **Product** will become the
 ***version*** will be displayed in the **Product Info Panel**, its full set of
 **Parameter** values and metadata will be shown in the **Object Viewer/Editor
 Panel** in the left panel, and its **Block Model** will be shown in the central
-**Diagram Canvas**. (In the current version of **Marvin**, the **Diagram
+**Diagram Canvas**. (In the current version of **Gargleblaster**, the **Diagram
 Canvas** is not editable; in a future version it will be editable.)
 
 ![Drag/Drop Library Item To View](images/comp_mode_drag_to_view.png "Drag/Drop Library Item To View")
@@ -547,7 +547,7 @@ The **System Tree** (bottom left panel) is an editable widget that supports
 *drag and drop*.  The **Systems Dashboard** (top panel) is automatically synced
 with the **System Tree** and displays an expandable table of system parameters
 that is computed and updated in real-time, even in collaborative operations --
-i.e. when several **Marvin** clients are connected via the **message bus** and
+i.e. when several **Gargleblaster** clients are connected via the **message bus** and
 are collaboratively building a system assembly.
 
 To add a component to a node in the **System Tree**, the user can <font
@@ -620,7 +620,7 @@ by clicking on that column's heading.  Columns can be rearranged by drag/drop
 
 The **Object Viewer/Editor** provides an interface to all properties and
 parameters of an object.  In ***[View Mode]*** (shown here) any user can
-inspect any object in **Marvin**.  If the user has edit permission for an
+inspect any object in **Gargleblaster**.  If the user has edit permission for an
 object, an *Edit* button will be displayed (see ***[Edit Mode]*** section,
 below).
 
@@ -746,7 +746,7 @@ their **owner** project or organization.
 # Tasks: How do I ...
 
 ### Create a new System or Component?
-Marvin has 2 ways to do that:
+Gargleblaster has 2 ways to do that:
 
 1. **Use the System / Component Wizard** ...  
    In the **Create** menu, select the option
@@ -765,7 +765,7 @@ behavior that must be implemented by a system.
 
 A **MEL** is a specialized bill of materials report, which takes the form of an
 *Excel* file in the standard format specified in **"GSFC's MEL Guidance for
-Proposals"** (Nov 2016 version).  See the **Marvin**
+Proposals"** (Nov 2016 version).  See the **Gargleblaster**
 *[Write Mel function](#write-mel...)*.
 
 ### Model
@@ -801,12 +801,12 @@ some measurable property or behavior of a system.
 ### Product
 
 The **Product** object (a.k.a. System, Subsystem, Component, Part) in
-**Marvin** corresponds to a *specification* or *data sheet* -- i.e., an
+**Gargleblaster** corresponds to a *specification* or *data sheet* -- i.e., an
 "as-designed" **Product**.  **Product** objects can be either black box
 entities, such as vendor parts whose internal components and structure are not
 known to the user, or white box entities, such as in-house systems whose
 internals are known.  In-house built or customized **Products** may be
-explicitly versioned in **Marvin** using the **Product** *version*
+explicitly versioned in **Gargleblaster** using the **Product** *version*
 attribute, but that is not required.  For externally-specified (e.g. vendor)
 **Products**, whose versioning is not controlled in-house, the *version*
 attribute is not used but the item's version may be inferred from its other
