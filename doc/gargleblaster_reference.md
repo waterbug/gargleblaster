@@ -156,10 +156,10 @@ appropriate name and location for the file that is created.
 ### Dump Local Database to a File...
 
 Writes the complete local database to a file as a set of serialized objects,
-which are serialized in thestandard serialization format and
-encoded into [YAML]("https://en.wikipedia.org/wiki/YAML").  Clicking this menu
-item displays a file dialog so the user can select an appropriate name and
-location for the file that is created.
+which are serialized in thestandard serialization format and encoded into
+[YAML]("https://yaml.org").  Clicking this menu item displays a file dialog so
+the user can select an appropriate name and location for the file that is
+created.
 
 ## Menu: Create New Objects
 
