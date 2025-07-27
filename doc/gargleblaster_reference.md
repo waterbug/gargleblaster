@@ -21,7 +21,7 @@ and manages.
 In the manufacturing domain, there are many terms for the concept of *designed
 artifact*, e.g. **System**, **Subsystem**, **Component**, **Part**.  The
 general term most widely used in engineering data standards is
-**["Product"](#product-a.k.a.-system-subsystem-component-part)** -- hence,
+**["Product"](#product)** -- hence,
 **PGEF** uses the term **Product** for all of those items.  The use of the
 more general term **Product** is simply a convention and in no way limits the
 types of information and models that can be associated with an artifact,
@@ -164,9 +164,9 @@ location for the file that is created.
 ## Menu: Create New Objects
 
 The **Create New Objects** menu provides functions to create new
-[Products (a.k.a. Systems, Components)](#product-a.k.a.-system-subsystem-component-part),
-[Functional Requirements](#requirement), [Performance Requirements](#requirement), and
-[Tests](#test).
+[Products (a.k.a. Systems, Components)](#product),
+[Functional Requirements](#requirement),
+[Performance Requirements](#requirement), and [Tests](#test).
 
 ![Create New Objects](images/new_objects_menu.png "Menu: Create New Objects")
 
@@ -710,7 +710,7 @@ Propulsion Systems**:
 # System / Component Wizard
 
 The **System / Component Wizard** provides a guided process to create a new [System or
-Component (a.k.a. Product)](#product-a.k.a.-system-subsystem-component-part).
+Component (a.k.a. Product)](#product).
 
 Note that any new system or component that is marked **public** will
 automatically be added to the **[Systems and Components (Hardware Products) Library]** and will then be
@@ -853,14 +853,12 @@ fiction television programme *Doctor Who* and its various spin-offs.
 
 ### Template
 
-A **Template** is a pre-defined structure from which a
-**[Product](#product-a.k.a.-system-subsystem-component-part)** can be
-created.  A **Template** has a **[Product Type]** but most importantly it can
-include an internal component structure, so that when a new
-**[Product](#product-a.k.a.-system-subsystem-component-part)** is created from
-the **Template**, the new **Product** will not only have the same **[Product
-Type]** (and **[Parameter]s**) but will also replicate the component structure
-of the **Template**.
+A **Template** is a pre-defined structure from which a **[Product](#product)**
+can be created.  A **Template** has a **[Product Type]** but most importantly
+it can include an internal component structure, so that when a new
+**[Product](#product)** is created from the **Template**, the new **Product**
+will not only have the same **[Product Type]** (and **[Parameter]s**) but will
+also replicate the component structure of the **Template**.
 
 ### Test
 
