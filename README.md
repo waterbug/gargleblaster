@@ -7,17 +7,18 @@ lifecycle management (PLM), computer-aided tools (CAX) integration,
 collaborative systems engineering, design, and analysis, and multi-disciplinary
 product model capture, integration, synthesis, and transformation.
 
-Marvin
-------
-**Marvin** is the desktop GUI client for the Pan Galactic Engineering Framework.
+The Gargleblaster
+-----------------
+The **Gargleblaster** is the desktop GUI client for the Pan Galactic
+Engineering Framework.
 
 Platform Notes
 --------------
 
-**Marvin** is a wrapper for the **`pangalactic.node.pangalaxian.py`** package,
-and should run on any OS for which its dependencies are supported; it is
-currently tested on Windows 10, OSX (macOS Sonoma), and Linux (Ubuntu and
-`Pop!_OS`).
+The **Gargleblaster** is a wrapper for the
+**`pangalactic.node.pangalaxian.py`** package, and should run on any OS for
+which its dependencies are supported; it is currently tested on Windows 10, OSX
+(macOS Sonoma), and Linux (Ubuntu and `Pop!_OS`).
 
 ----------------------------------------------------------------------------
 

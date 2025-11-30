@@ -3,7 +3,7 @@
   "menu_items":
     [
       {
-        "name": "Marvin",
+        "name": "Gargleblaster",
         "pywscript": "${PREFIX}/Scripts/gargleblaster-script.py",
         "icon": "${MENU_DIR}/pangalacticon.ico",
         "desktop": true,
