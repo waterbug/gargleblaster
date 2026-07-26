@@ -101,6 +101,9 @@ def main():
     parser.add_argument('--auth', dest='auth', type=str, default='cryptosign',
                         help='authentication method: "ticket" or "cryptosign" '
                              '[default: "cryptosign" (pubkey auth)]')
+    parser.add_argument('--key', dest='key', default='', type=str,
+                    help="name of the file containing the user's private key"
+                         ' [default: private.key]')
     args = parser.parse_args()
     # use True for DEBUG default setting (SCW 2018-12-23) ...
     DEBUG = config.get('debug') or args.debug
@@ -219,7 +222,8 @@ def main():
     base_name = app_config['app_base_name']
     run(app_home=app_home_dir, app_base_name=base_name,
         app_version=app_version, release_mode=release_mode, splash_image=None,
-        debug=DEBUG, console=console, auth_method=args.auth, use_tls=TLS)
+        debug=DEBUG, console=console, auth_method=args.auth,
+        key_file_name=args.key, use_tls=TLS)
 
 if __name__ == '__main__':
     main()
