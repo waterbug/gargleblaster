@@ -1,6 +1,6 @@
 package:
   name: gargleblaster
-  version: "4.4.dev2"
+  version: "4.4.dev3"
 
 source:
   path: # [path to source]
@@ -18,7 +18,7 @@ requirements:
   run:
     - python
     - menuinst
-    - pangalactic.node >=4.4.dev2
+    - pangalactic.node >=4.4.dev3
 
 about:
   # home: [url]

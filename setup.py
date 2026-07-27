@@ -5,7 +5,7 @@ Setup script for Gargleblaster.
 import os, site
 from setuptools import setup, find_packages
 
-VERSION = '4.4.dev2'
+VERSION = '4.4.dev3'
 
 sitepkg_dir = [p for p in site.getsitepackages()
                if p.endswith('site-packages')][0]
@@ -28,7 +28,7 @@ setup(
     author="Stephen Waterbury",
     author_email="waterbug81@gmail.com",
     install_requires=[
-        'pangalactic.node>=4.4.dev2'
+        'pangalactic.node>=4.4.dev3'
         ],
     keywords='',
     maintainer="Stephen Waterbury",
