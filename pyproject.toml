@@ -1,0 +1,81 @@
+[build-system]
+# >= 77.0 is required for PEP 639 support ("license" SPDX expression and
+# "license-files" in [project]).
+requires = ["setuptools >= 77.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gargleblaster"
+version = "4.4.dev3"
+description = "Pan Galactic MBSE GUI"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "NASA-1.3"
+license-files = ["NOSA_18985_Pan_Galactic_Engineering_Framework_3.0.pdf"]
+authors = [
+    {name = "Stephen Waterbury", email = "waterbug81@gmail.com"},
+]
+maintainers = [
+    {name = "Stephen Waterbury", email = "waterbug81@gmail.com"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: Implementation :: CPython",
+]
+dependencies = [
+    "pangalactic.node>=4.4.dev3",
+]
+
+# setup.py declared the same target under both console_scripts and
+# gui_scripts; [project.scripts] and [project.gui-scripts] are the
+# equivalents.
+[project.scripts]
+gargleblaster = "gargleblaster.__main__:main"
+
+[project.gui-scripts]
+gargleblaster = "gargleblaster.__main__:main"
+
+# ---------------------------------------------------------------------------
+# This package needs an explicit "packages" list rather than packages.find,
+# because two of its packages do not live where their names imply.
+#
+# The HTML documentation is authored at the top level of the repository, in
+# "doc/", but it has to be *installed inside the package* as
+# "gargleblaster/doc/", because the application displays it from there at
+# runtime -- __main__.py does:
+#     gargleblaster_mod_path = gargleblaster.__path__[0]
+#     doc_path = os.path.join(gargleblaster_mod_path, 'doc')
+# and copies it into the app home directory, whose comment notes that
+# doc_path "is not part of the gargleblaster module but is copied into it by
+# running setup.py, conda build, or pyinstaller".
+#
+# setup.py did that relocation with data_files. The declarative equivalent is
+# package-dir: it maps the package name "gargleblaster.doc" onto the source
+# directory "doc", so the files are installed under gargleblaster/doc/ while
+# staying where they are authored. (Both "doc" and "doc/images" already
+# contain an __init__.py, so they are importable packages, which is what
+# makes this mapping work.)
+# ---------------------------------------------------------------------------
+[tool.setuptools]
+packages = [
+    "gargleblaster",
+    "gargleblaster.test",
+    "gargleblaster.test.data",
+    "gargleblaster.doc",
+    "gargleblaster.doc.images",
+]
+
+[tool.setuptools.package-dir]
+"gargleblaster.doc" = "doc"
+"gargleblaster.doc.images" = "doc/images"
+
+# NOTE: the doc globs are deliberately narrow. setup.py installed only the
+# generated HTML plus its stylesheet -- not the .md sources, README or
+# htmlify.sh that also live in doc/ -- and these patterns preserve that.
+[tool.setuptools.package-data]
+"gargleblaster.doc"        = ["*.html", "*.css"]
+"gargleblaster.doc.images" = ["*"]
+"gargleblaster.test.data"  = ["*"]
