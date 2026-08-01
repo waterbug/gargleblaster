@@ -61,5 +61,19 @@ for deid in mel_deids:
     if deid in gsfc_mel_deids:
         mel_schema.append(deid)
 
+# NOTE: "mel_deids" above is hand-maintained, and anything in it without a
+# matching 'gsfc.mel' Data Element Definition in p.core.refdata is dropped
+# from the MEL by the loop above -- silently, until now.  A typo in that list
+# therefore removed a column from the MEL with no indication anywhere.  All
+# 42 currently resolve; this makes it self-diagnosing if that changes.
+missing_mel_deids = [deid for deid in mel_deids if deid not in gsfc_mel_deids]
+if missing_mel_deids:
+    import warnings
+    warnings.warn(
+        'gargleblaster.data: {} MEL data element id(s) have no "gsfc.mel" '
+        'definition in p.core.refdata and are omitted from the MEL '
+        'schema: {}'.format(len(missing_mel_deids), missing_mel_deids),
+        stacklevel=2)
+
 schemas = {'MEL': mel_schema}
 
