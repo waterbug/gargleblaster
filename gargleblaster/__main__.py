@@ -286,10 +286,12 @@ def start():
     # if this option is used.
     if not app_home_dir:
         app_home_dir = os.path.join(os.getcwd(), 'gargleblaster_home')
+    # NOTE: a second, identical "if not exists: makedirs(app_home_dir)" used to
+    # follow this one.  It was unreachable -- the directory exists by then --
+    # and it omitted mode=0o755, so if it ever had run it would have created
+    # the home directory at the process umask instead.
     if not os.path.exists(app_home_dir):
         os.makedirs(app_home_dir, mode=0o755)
-    if not os.path.exists(app_home_dir):
-        os.makedirs(app_home_dir)
     # record it for report_startup_failure(), so that a failure from here on
     # is written where the user can find it rather than to a temp directory
     global APP_HOME_DIR
