@@ -242,8 +242,8 @@ resolve); with a deliberately mistyped id, the warning fires and names it.
 Renumbering the step comment from `[6]` to `[5]` also closes the gap noted
 under the carried-forward items — the steps now run [1]-[5].
 
-### 6. `ug_to_garleblaster.sh` replaces only the first occurrence per line
-`ug_to_garleblaster.sh`
+### 6. `ug_to_gargleblaster.sh` replaces only the first occurrence per line
+`ug_to_gargleblaster.sh`
 
 ```sh
 sed s/Pangalaxian/Gargleblaster/g ... | \
@@ -256,7 +256,8 @@ is rewritten, leaving "pangalaxian" in the generated user guide. Its sibling
 `ref_to_gargleblaster.sh` uses `/g` throughout, so this is an inconsistency
 rather than a deliberate choice.
 
-(Also: the script's filename is missing a "g" — `ug_to_garleblaster.sh`.)
+(Also: the script's filename was missing a "g" — `ug_to_garleblaster.sh`.
+**Renamed 2026-08-04**; nothing but this review referenced it.)
 
 ### 7. `ref_to_gargleblaster.sh` corrupted the generated reference document
 
