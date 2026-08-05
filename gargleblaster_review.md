@@ -258,6 +258,52 @@ rather than a deliberate choice.
 
 (Also: the script's filename is missing a "g" — `ug_to_garleblaster.sh`.)
 
+### 7. `ref_to_gargleblaster.sh` corrupted the generated reference document
+
+Found while regenerating the docs, 2026-08-04. The script stripped the
+**PGEF** acronym with
+
+```sh
+    sed s/...PGEF...//g
+```
+
+whose dots are unescaped regex wildcards. It therefore matched three
+*arbitrary* characters either side of "PGEF" and deleted them along with it.
+For the usual `**PGEF**` those three characters are a space and two asterisks,
+so the space went too — joining the surrounding words. The generated
+`doc/gargleblaster_reference.md` shipped with:
+
+| generated | should have been |
+|---|---|
+| `in thestandard serialization format` | `in the ... standard serialization format` |
+| `to theserver.` | `to the ... server.` |
+| `to theadministrator when requesting` | `to the ... administrator when requesting` |
+| `for use in theserver login` | `for use in the ... server login` |
+| `hence,uses the term **Product**` | `hence, ... uses the term **Product**` |
+| `schema-independence. releases will` | `schema-independence. ... releases will` |
+
+It also *missed* the one occurrence at the start of a line, which has no three
+characters before it to match — so `**PGEF**` survived into the generated
+document as well. Seven mangled, one left behind.
+
+**STATUS: FIXED (2026-08-04).** Replaced with two explicit, quoted
+expressions, in order: drop the parenthetical gloss `(**PGEF**)`, which is
+redundant once the expanded name has become "Gargleblaster"; then rewrite any
+remaining `**PGEF**` as `**Gargleblaster**`, preserving the bold the source
+applies. All eight occurrences now read correctly and nothing branded
+survives — verified by regenerating and grepping for `PGEF`, `Pan Galactic`
+and `pangalaxian`.
+
+Both generated documents were also **out of date**: their sources were edited
+on 2026-05-28 and neither had been regenerated since. Both are now current
+(the user guide picks up 43 lines of genuine upstream content; the reference
+picks up its own, plus the corrections above).
+
+*Related:* finding #6 above is the same class of defect in the sibling
+script — a `sed` expression that did not do what it appeared to. Neither was
+detectable by reading the generated output casually, since the damage looks
+like ordinary prose.
+
 ## Carried forward from `pangalactic.node/node_startup_review.md`
 
 Still present in `__main__.py`, verified against the current source:

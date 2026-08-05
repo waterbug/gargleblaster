@@ -12,14 +12,13 @@
 ## Run Gargleblaster
 
 The first time Gargleblaster starts up, it will create a directory called either
-***gargleblaster_home*** (for a production version) or
-***gargleblaster_home_dev*** (for a development version).  In that directory it
-will save its configuration and create a local database.
+***gargleblaster_home*** (for the production version) or
+***gargleblaster_home_dev*** (for the development version).  In that directory it
+will create a local database and it will load some reference data, which will
+take a minute or two.  Once the initial start up has loaded the reference data,
+subsequent start ups of Gargleblaster will just take a few seconds.
 
 ## Generate a Public/Private Key Pair...
-
-This step is only required if you plan to connect Gargleblaster to a
-**pangalactic.vger** repository service.
 
 1. In the Gargleblaster *Output* menu:
 
@@ -27,16 +26,15 @@ This step is only required if you plan to connect Gargleblaster to a
 
 ... select the menu item *Generate a Public/Private Key Pair*
 This generates a pair of encrypted keys that are used in the single-sign-on
-process that **Gargleblaster** uses to log in to a **pangalactic.vger**
-repository service.
+process that **Gargleblaster** uses to log in to its Repository Service.
 
-2.  Send the *public.key* file to the administrator of the repository service
-to which you plan to connect -- the *public.key* file for a production
-version of **Gargleblaster** on Windows is located here:  
+2.  Email the *public.key* file to the **Gargleblaster** admin -- the
+*public.key* file for the production version of **Gargleblaster** on Windows is
+located here:  
 
 **C:\\Users\\[your userid]\\gargleblaster_home\\public.key**
 
-... and for a development version on Windows it is here:  
+... and for the development version on Windows it is here:  
 
 **C:\\Users\\[your userid]\\gargleblaster_home_dev\\public.key**
 
@@ -50,24 +48,23 @@ and
 
 (After you email it to the admin, you no longer need the *public.key* file.)
 
-The *private key* is a file called **gargleblaster.key** which is located in
-your profile folder (a.k.a. your "home directory").  Take care not to delete it
-because it is used by **Gargleblaster** and will be used by any future version
-of **Gargleblaster** you install.  The same **gargleblaster.key** file is used
-by both **Gargleblaster** and **Gargleblasterdev**.
+The *private key* is a file called **gargleblaster.key** which is located in your
+profile folder (a.k.a. your "home directory").  Take care not to delete it
+because it is used by **Gargleblaster** and will be used by any future version of
+**Gargleblaster** you install.  The same **gargleblaster.key** file is used by both
+**Gargleblaster** and **Gargleblasterdev**.
 
-## Login to a Repository Service
+## Login to the Repository Service
 
-After you have sent your *public.key* file to the repository administrator and
-the administrator has added it to the repository authentication database, you
-can log in.
+After you have emailed your *public.key* file to the Gargleblaster Admin, you can log
+in.
 
 When the *Repository Service* icon in the **Tool Bar** is clicked,
 **Gargleblaster** will use the *gargleblaster.key* file to do a transparent
-single-sign-on login to the repository service.  *Note that the Repository
+single-sign-on login to the Repository Service.  *Note that the Repository
 Service icon is a toggle -- you use it to log in or to log out.*
 
-When you log in to the repository service, **Gargleblaster** will:
+When you log in to the Repository Service, **Gargleblaster** will:
 
 1.  Get the names of **Projects** on which you have been assigned
     **Roles**.  (This may result in **Projects** being added or removed in the

@@ -1,45 +1,43 @@
 % Gargleblaster Reference
 
-# Overview:  The Pan Galactic Engineering Framework Architecture
+# Overview:  The Gargleblaster Architecture
 
-The **Pan Galactic Engineering Framework** is a Collaborative Model-Based
-Engineering (MBE) framework, consisting of a desktop client
-(**Gargleblaster**), a network message bus
-([**Crossbar**](https://github.com/crossbario/crossbar)), and a repository
-service (**VGER**) that provides access to a **Systems Database**, as shown in
-the diagram below.
+**Gargleblaster** is a Collaborative
+Model-Based Engineering (MBE) framework, consisting of a **Desktop Client**, a
+network **Message Bus**, and a repository service network interface that
+provides access to a **Systems Database** and **Systems and Components
+Library**, as shown in the diagram below.
 
 This reference document is primarily focused on the application structure of
-the **Gargleblaster** desktop client. It includes a **[Glossary](#glossary))** of
-terms related to the **Pan Galactic** domain objects that **Gargleblaster** creates
-and manages.
+the **Gargleblaster Desktop Client** and includes a **[Glossary](#glossary))** of
+terms related to the objects that **Gargleblaster** creates and manages.
 
-![Pan Galactic Architecture](images/gargleblaster_arch.png "Pan Galactic Architecture")
+![Gargleblaster Architecture](images/gargleblaster_arch.png "Gargleblaster Architecture")
 
 # A Word About Nomenclature ...
 
 In the manufacturing domain, there are many terms for the concept of *designed
 artifact*, e.g. **System**, **Subsystem**, **Component**, **Part**.  The
 general term most widely used in engineering data standards is
-**["Product"](#product)** -- hence,
-**PGEF** uses the term **Product** for all of those items.  The use of the
-more general term **Product** is simply a convention and in no way limits the
-types of information and models that can be associated with an artifact,
-independently of whether it is referred to in some contexts as a **System** (a
-complex **Product** with internal structure and behaviors) and in others a
-**Component** (a **Product** used in the assembly of another **Product**).
+**["Product"](#product)** -- hence, **Gargleblaster** uses the term **Product** for all
+of those items.  The use of the more general term **Product** is simply a
+convention and in no way limits the types of information and models that can be
+associated with an artifact, independently of whether it is referred to in some
+contexts as a **System** (a complex **Product** with internal structure and
+behaviors) and in others a **Component** (a **Product** used in the assembly of
+another **Product**).
 
-**PGEF** generally uses the term **System** in the context of a ***white box***
-model of a **Product** (i.e., one in which the internal structures and/or
-interfaces of the **Product** are known) and **Component** in the context of a
-***black box*** model (in which only the attributes and external shape and/or
-interfaces are known or relevant).  **Gargleblaster** is designed to support
-the multi-disciplinary nature of **Product** models, so for any given
-**Product**, **Gargleblaster** can maintain and track its relationships to
-multiple ***white box*** and ***black box*** models.  Indeed, it is perfectly
-normal for a **Product** to have several types of models, some of which are
-***white boxes*** and some ***black boxes***, developed and used by discipline
-engineers in various design and analysis contexts.
+**Gargleblaster** generally uses the term **System** in the context of a ***white
+box*** model of a **Product** (i.e., one in which the internal structures
+and/or interfaces of the **Product** are known) and **Component** in the
+context of a ***black box*** model (in which only the attributes and external
+shape and/or interfaces are known or relevant).  **Gargleblaster** is designed to
+support the multi-disciplinary nature of **Product** models, so for any given
+**Product**, **Gargleblaster** can maintain and track its relationships to multiple
+***white box*** and ***black box*** models.  Indeed, it is perfectly normal for
+a **Product** to have several types of models, some of which are ***white
+boxes*** and some ***black boxes***, developed and used by discipline engineers
+in various design and analysis contexts.
 
 # Main Window Elements
 
@@ -126,7 +124,7 @@ however, see the
 *[important note about importing data](#an-important-note-about-importing-data-from-exported-data-files)*.
 
 The format of the exported file self-describing and it therefore has some
-degree of schema-independence. releases will sometimes involve
+degree of schema-independence.  **Gargleblaster** releases will sometimes involve
 internal database schema (ontology) changes, and since the exported file is
 schema-independent, the
 [Import Project from a File](#import-project-from-a-file...)
@@ -156,17 +154,30 @@ appropriate name and location for the file that is created.
 ### Dump Local Database to a File...
 
 Writes the complete local database to a file as a set of serialized objects,
-which are serialized in thestandard serialization format and encoded into
-[YAML]("https://yaml.org").  Clicking this menu item displays a file dialog so
-the user can select an appropriate name and location for the file that is
-created.
+which are serialized in the **Gargleblaster** standard serialization format and encoded
+into [YAML]("https://yaml.org").  Clicking this menu item displays a file
+dialog so the user can select an appropriate name and location for the file
+that is created.
+
+### Generate a Public/Private Key Pair...
+
+Generates a pair of encrypted keys for use in the **Gargleblaster** server login
+process.  The **public key** (*public.key*) will be written into the
+*gargleblaster_home* directory, which is located in the user's home directory.  The
+**private key** (*private.key*) is written into the *.creds* subdirectory of
+*gargleblaster_home*, and it should not be moved.  The user should email the
+*public.key* file to the **Gargleblaster** administrator when requesting a user
+account.  After that, the *public.key* file is no longer needed by **Gargleblaster**.
+When the *Network Login* icon in the **Tool Bar** is clicked, the **Gargleblaster**
+client will use the *private.key* file to do a transparent single-sign-on login
+to the **Gargleblaster** server.
 
 ## Menu: Create New Objects
 
 The **Create New Objects** menu provides functions to create new
 [Products (a.k.a. Systems, Components)](#product),
-[Functional Requirements](#requirement),
-[Performance Requirements](#requirement), and [Tests](#test).
+[Functional Requirements](#requirement), [Performance Requirements](#requirement), and
+[Tests](#test).
 
 ![Create New Objects](images/new_objects_menu.png "Menu: Create New Objects")
 
@@ -190,15 +201,15 @@ Displays a wizard (see figure below) in which the user can create a new
 **[Performance Requirement](#performance-requirement)**.
 
 A **[Requirement](#requirement)** is typically owned (defined and managed) by
-an **Organization**, and when a new **Requirement** is defined,
-**Gargleblaster** assigns the currently selected **Project** as its ***owner***
-(the ***owner*** field is on the **info** tab of the **[Object
-Editor](#object-viewereditor)**) -- note that that is just a default
-assignment of ***owner***, and can be modified by the ***creator*** of the
-**Requirement** (i.e. the user who is editing it).  The ***id*** attribute also
-gets a default prefix from the **Project** ***id*** -- for example, the figure
-shows the ***id*** prefix as "**SANDBOX**", since it was created while the
-*SANDBOX* **Project** was selected.
+an **Organization**, and when a new **Requirement** is defined, **Gargleblaster**
+assigns the currently selected **Project** as its ***owner*** (the ***owner***
+field is on the **info** tab of the **[Object Editor](#object-viewereditor)**)
+-- note that that is just a default assignment of ***owner***, and can be
+modified by the ***creator*** of the **Requirement** (i.e. the user who is
+editing it).  The ***id*** attribute also gets a default prefix from the
+**Project** ***id*** -- for example, the figure shows the ***id*** prefix as
+"**SANDBOX**", since it was created while the *SANDBOX* **Project** was
+selected.
 
 It is also worth noting that, as explained in the
 **[Project Requirements Manager](#project-requirements-manager)** section
@@ -486,6 +497,62 @@ created within that project will continue to exist -- only the **Project**
 itself is deleted.
 
 ![Project Selector Right-Clicked (context menu)](images/project_selector_menu.png "Project Selector Right-Clicked")
+
+## Network Login / Logout
+
+When the mouse hovers over the **Network Login/Logout** button, a "tooltip" is
+displayed, as shown below, **Connect to the message bus**:
+
+![Repository Service](images/network_login.png "Repository Service")
+
+The **Gargleblaster** client auto-connects to the Repository Service by default,
+but the user can un-check that "Auto-connect at startup" option if desired.
+
+The **Repository Service** button is a toggle, so clicking on it while
+connected will disconnect from the **Message Bus**.  The
+*connected* / *disconnected* status is shown by the *network status indicator*
+in the lower right corner of the main window:
+
+![Network Status: Connected](images/status_connected.png "Network Status: Connected")  
+
+![Network Status: Disconnected](images/status_disconnected.png "Network Status: Disconnected")
+
+
+Once the user logs in to the **Repository Service**, the **Gargleblaster** client
+begins a programmed set of network interactions that synchronize its local
+database with the repository.  The initial interactions upon connection
+include:
+
+1.  Get the list of **Projects** to which the user has access.
+    (The **Project Names** for any such projects will being added to the
+    **Project Selector**.)
+2.  Subscribe to the channels on which those **Projects** publish events, such
+    as the addition of new **Systems** and **Components** to the **Project**.
+3.  Synchronize the **Parameter Definitions** in the local database with those
+    in the repository (this will include both getting from the repository any
+    new **Parameter Definitions** and saving to the repository any new
+    **Parameter Definitions** created by the user).
+4.  Local user-created objects are saved to the repository (or deleted, if they
+    were deleted locally since the last login and are not being used in a
+    **Project**).
+5.  Any new (since last login) objects in the repository **Hardware Library**
+    are fetched and added to the local database.
+6.  The currently selected **Project** is synced:  the current state of its
+    assembly tree is replicated locally and any objects that have been added to
+    the **Project** (such as **Project Requirements**) since the last login are
+    fetched and added to the local database.
+7.  The user's assigned **Role(s)** in the current **Project** will be
+    displayed in the **Status Bar** (in the status label next to the *network
+    status indicator*) if the current project is a collaborative project -- if
+    it is a local project, the status label will say "**[local]**".
+
+Once the initial sync is completed, the **Gargleblaster** client will listen for
+events on the message bus, such as additions or modifications of objects, and
+will update itself accordingly in real-time.
+
+Whenever the user switches to a different project using the **Project
+Selector**, the sync operation (step 6 above) is executed for the newly
+selected **Project**.
 
 # User Interface Modes
 
