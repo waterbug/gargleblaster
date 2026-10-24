@@ -26,7 +26,7 @@
 <li><a href="#install-gargleblaster">Install Gargleblaster</a></li>
 <li><a href="#run-gargleblaster">Run Gargleblaster</a></li>
 <li><a href="#generate-a-publicprivate-key-pair">Generate a Public/Private Key Pair…</a></li>
-<li><a href="#login-to-a-repository-service">Login to a Repository Service</a></li>
+<li><a href="#login-to-the-repository-service">Login to the Repository Service</a></li>
 </ul></li>
 <li><a href="#how-to">How To</a>
 <ul>
@@ -57,6 +57,16 @@
 <ul>
 <li><a href="#options-for-creating-a-clone-from-a-white-box-object">Options for Creating a Clone from a White Box Object</a></li>
 </ul></li>
+<li><a href="#import-product-model-data-from-a-step-file">Import Product Model Data from a STEP File</a>
+<ul>
+<li><a href="#choose-the-file-and-what-the-import-should-do">Choose the File and What the Import Should Do</a></li>
+<li><a href="#review-the-plan">Review the Plan</a></li>
+<li><a href="#reuse">Reuse</a></li>
+<li><a href="#the-file-is-kept">The File Is Kept</a></li>
+<li><a href="#a-file-that-has-already-been-imported">A File That Has Already Been Imported</a></li>
+<li><a href="#files-that-come-as-a-set">Files That Come as a Set</a></li>
+<li><a href="#units">Units</a></li>
+</ul></li>
 <li><a href="#define-a-concept-of-operations-conops-and-power-modes">Define a Concept of Operations (“ConOps”) and Power Modes</a>
 <ul>
 <li><a href="#add-activities-to-a-timeline">Add Activities to a Timeline</a></li>
@@ -65,6 +75,16 @@
 <li><a href="#add-cyclic-activities">Add Cyclic Activities</a></li>
 <li><a href="#define-sub-activities-in-a-cycle-timeline">Define Sub-Activities in a Cycle Timeline</a></li>
 <li><a href="#graph-system-power-modes-vs.-time">Graph System Power Modes vs. Time</a></li>
+</ul></li>
+<li><a href="#work-while-disconnected-from-the-repository">Work While Disconnected from the Repository</a>
+<ul>
+<li><a href="#what-you-may-edit-offline">What You May Edit Offline</a></li>
+<li><a href="#check-out-the-items-you-intend-to-work-on">Check Out the Items You Intend to Work On</a></li>
+<li><a href="#a-claim-is-exclusive">A Claim Is Exclusive</a></li>
+<li><a href="#check-items-back-in-when-you-are-done">Check Items Back In When You Are Done</a></li>
+<li><a href="#activities-and-timelines">Activities and Timelines</a></li>
+<li><a href="#claims-expire">Claims Expire</a></li>
+<li><a href="#when-you-reconnect">When You Reconnect</a></li>
 </ul></li>
 <li><a href="#use-local-db-mode-to-display-tables-and-export-to-files">Use Local DB Mode to Display Tables and Export to Files</a></li>
 <li><a href="#set-preferred-units">Set Preferred Units</a></li>
@@ -78,21 +98,20 @@
 <li>On Mac, follow the instructions in the <em>Gargleblaster_MAC_README.txt</em> file, which you should find in the same location as the Mac “installer”.</li>
 </ul>
 <h2 id="run-gargleblaster">Run Gargleblaster</h2>
-<p>The first time Gargleblaster starts up, it will create a directory called either <strong><em>gargleblaster_home</em></strong> (for a production version) or <strong><em>gargleblaster_home_dev</em></strong> (for a development version). In that directory it will save its configuration and create a local database.</p>
+<p>The first time Gargleblaster starts up, it will create a directory called either <strong><em>gargleblaster_home</em></strong> (for the production version) or <strong><em>gargleblaster_home_dev</em></strong> (for the development version). In that directory it will create a local database and it will load some reference data, which will take a minute or two. Once the initial start up has loaded the reference data, subsequent start ups of Gargleblaster will just take a few seconds.</p>
 <h2 id="generate-a-publicprivate-key-pair">Generate a Public/Private Key Pair…</h2>
-<p>This step is only required if you plan to connect Gargleblaster to a <strong>pangalactic.vger</strong> repository service.</p>
 <ol type="1">
 <li>In the Gargleblaster <em>Output</em> menu:</li>
 </ol>
 <figure>
 <img src="images/output_menu.png" title="Menu: Output" alt="" /><figcaption>Output Menu</figcaption>
 </figure>
-<p>… select the menu item <em>Generate a Public/Private Key Pair</em> This generates a pair of encrypted keys that are used in the single-sign-on process that <strong>Gargleblaster</strong> uses to log in to a <strong>pangalactic.vger</strong> repository service.</p>
+<p>… select the menu item <em>Generate a Public/Private Key Pair</em> This generates a pair of encrypted keys that are used in the single-sign-on process that <strong>Gargleblaster</strong> uses to log in to its Repository Service.</p>
 <ol start="2" type="1">
-<li>Send the <em>public.key</em> file to the administrator of the repository service to which you plan to connect – the <em>public.key</em> file for a production version of <strong>Gargleblaster</strong> on Windows is located here:</li>
+<li>Email the <em>public.key</em> file to the <strong>Gargleblaster</strong> admin – the <em>public.key</em> file for the production version of <strong>Gargleblaster</strong> on Windows is located here:</li>
 </ol>
 <p><strong>C:\Users\[your userid]\gargleblaster_home\public.key</strong></p>
-<p>… and for a development version on Windows it is here:</p>
+<p>… and for the development version on Windows it is here:</p>
 <p><strong>C:\Users\[your userid]\gargleblaster_home_dev\public.key</strong></p>
 <p>On the Mac, the locations are:</p>
 <p><strong>/Users/[your userid]/gargleblaster_home/public.key</strong> and <strong>/Users/[your userid]/gargleblaster_home_dev/public.key</strong></p>
@@ -101,10 +120,10 @@
 </figure>
 <p>(After you email it to the admin, you no longer need the <em>public.key</em> file.)</p>
 <p>The <em>private key</em> is a file called <strong>gargleblaster.key</strong> which is located in your profile folder (a.k.a. your “home directory”). Take care not to delete it because it is used by <strong>Gargleblaster</strong> and will be used by any future version of <strong>Gargleblaster</strong> you install. The same <strong>gargleblaster.key</strong> file is used by both <strong>Gargleblaster</strong> and <strong>Gargleblasterdev</strong>.</p>
-<h2 id="login-to-a-repository-service">Login to a Repository Service</h2>
-<p>After you have sent your <em>public.key</em> file to the repository administrator and the administrator has added it to the repository authentication database, you can log in.</p>
-<p>When the <em>Repository Service</em> icon in the <strong>Tool Bar</strong> is clicked, <strong>Gargleblaster</strong> will use the <em>gargleblaster.key</em> file to do a transparent single-sign-on login to the repository service. <em>Note that the Repository Service icon is a toggle – you use it to log in or to log out.</em></p>
-<p>When you log in to the repository service, <strong>Gargleblaster</strong> will:</p>
+<h2 id="login-to-the-repository-service">Login to the Repository Service</h2>
+<p>After you have emailed your <em>public.key</em> file to the Gargleblaster Admin, you can log in.</p>
+<p>When the <em>Repository Service</em> icon in the <strong>Tool Bar</strong> is clicked, <strong>Gargleblaster</strong> will use the <em>gargleblaster.key</em> file to do a transparent single-sign-on login to the Repository Service. <em>Note that the Repository Service icon is a toggle – you use it to log in or to log out.</em></p>
+<p>When you log in to the Repository Service, <strong>Gargleblaster</strong> will:</p>
 <ol type="1">
 <li>Get the names of <strong>Projects</strong> on which you have been assigned <strong>Roles</strong>. (This may result in <strong>Projects</strong> being added or removed in the <strong>Project Selector</strong>.)</li>
 <li>Subscribe to events regarding those <strong>Projects</strong>, such as the addition of new <strong>Systems</strong> and <strong>Components</strong> to a <strong>Project</strong>.</li>
@@ -258,6 +277,103 @@ In the <strong>Create</strong> menu, select the option <strong>New System or Com
 <p>As the instructions say, you can select <strong>flatten</strong>, in which case the <strong>CBE</strong> (<strong>Current Best Estimate</strong>) values of <strong>Mass[CBE]</strong>, <strong>Power[CBE]</strong>, and <strong>Data Rate[CBE]</strong> for the original object are assigned to the <strong>Mass</strong>, <strong>Power</strong>, and <strong>Data Rate</strong> parameters of the clone. Since the <strong>CBE</strong> parameters of a <strong>white box</strong> product are computed as the sum of the <strong>CBE</strong> parameters of its components, this essentially <strong>“flattens”</strong> them into the new <strong>black box</strong> object, which will have the same <strong>CBE</strong> parameters as the original object but without its components.</p>
 <p>If the <strong>flatten</strong> option is not selected, the clone will simply be assigned the original object’s specified <strong>Mass</strong>, <strong>Power</strong>, and <strong>Data Rate</strong> parameters.</p>
 <p>Note that in either case, whether a <strong>white box</strong> or <strong>black box</strong> clone is created, the clone will receive <em>all parameters</em> of the original object.</p>
+<h2 id="import-product-model-data-from-a-step-file">Import Product Model Data from a STEP File</h2>
+<p>A <strong>STEP</strong> (<strong>ISO 10303</strong>) file, for which the valid extensions are <em>.stp</em>, <em>.step</em>, or <em>.p21</em>, is the standard data exchange format that <strong>Mechanical CAD</strong> systems export. If a <strong>CAD</strong> model associated with a product design exists and has been exported to a <strong>STEP</strong> file, <strong>Gargleblaster</strong> can read that file and extract the <strong>CAD</strong> model it contains, and if the model includes the product’s assembly structure, the exact position and orientation of each component within the assembly can be extracted and stored within <strong>Gargleblaster</strong>’s database.</p>
+<p>Note that component placements can be useful for purposes beyond simple visualization of the model: the position and orientation of each component within a spacecraft assembly, in combination with mass properties, enables the mass distribution of that spacecraft to be computed, which, among other things, is one of the inputs required for an Attitude Control System simulation.</p>
+<p>To begin, there are 2 options:</p>
+<ol type="1">
+<li><p>If there already exists a <strong>HardwareProduct</strong> object in <strong>Gargleblaster</strong> that the <strong>CAD</strong> model represents, open that object in the Object Viewer/Editor and use the “Add Model” button to add the <strong>CAD</strong> model.</p></li>
+<li><p>If there is not yet a <strong>HardwareProduct</strong> object in <strong>Gargleblaster</strong> for the item represented by the <strong>CAD</strong> model, select the <strong>Import Product Data from a STEP File</strong> item in the <strong>Tools</strong> menu, which is available in both the <strong>System Modeler</strong> and <strong>Component Modeler</strong> modes.</p></li>
+</ol>
+<figure>
+<img src="images/import_step_menu_item.png" title="Tools / Import Product Data from a STEP File" alt="" /><figcaption>Tools / Import Product Data from a STEP File</figcaption>
+</figure>
+<h3 id="choose-the-file-and-what-the-import-should-do">Choose the File and What the Import Should Do</h3>
+<p>The initial dialog enables selection of the file and what should be done with it.</p>
+<figure>
+<img src="images/import_step_dialog.png" title="Import Product Data from a STEP File Dialog" alt="" /><figcaption>Import Product Data from a STEP File Dialog</figcaption>
+</figure>
+<p>Click <strong>Select STEP file …</strong> to choose the file, then choose one of three options:</p>
+<ul>
+<li><p><strong>Add 3D placement and orientation for the components of “…”</strong> – the assembly represented in the <strong>STEP</strong> model are exactly those of the item currently selected in the <strong>Gargleblaster</strong> interface, and the item has the same design as it exists in the <strong>STEP</strong> model. Each occurrence in the file is matched to a component the assembly already has, by <strong>reference designator</strong>, and the position of each is recorded. <em>No products are created and no structure is changed</em> – only placements are added. This option is available only when an assembly is selected <em>and</em> the file has components to position. When the <strong>STEP</strong> file has a single part and no assembly structure, this option is disabled and says why.</p></li>
+<li><p><strong>Create products and assembly structure from the file</strong> – use this option for a <strong>STEP</strong> model of a product that does not yet exist in the repository. A <strong>HardwareProduct</strong> instance is created to represent the product, and for each distinct component in the product’s assembly structure in the <strong>STEP</strong> model, a <strong>HardwareProduct</strong> is created and its geometric placement in the assembly is recorded in a reusable STEP format.</p></li>
+<li><p><strong>Add the file as a CAD model of “…” , with no assembly structure</strong> – keep the geometry and nothing else. The file becomes the selected product’s <strong>MCAD Model</strong>; no products are proposed for what is inside it and no assembly structure is created. This option needs a product selected, but unlike the placement option it does not need the file to contain an assembly.</p>
+<p>This is often the most appropriate option even when the file <em>does</em> contain an “assembly”: the assembly may be synthetic – e.g., its components may be synthetic pieces used in a manufacturing process rather than distinctly specified products. Or the components may be real products that the file does not identify. In both cases the geometry is relevant but it is not useful to separately save and identify its assembly’s “component” items within the repository.</p>
+<p>The <strong>Add Model</strong> button in the object viewer/editor, for the <strong>MCAD</strong> option, starts the same import on this option, for the object being viewed.</p>
+<p>A file may be the model of <strong>one</strong> product. If it already describes another, the import is refused: two products with the same geometry under the same file name could not be told apart afterwards, since a <strong>CAD</strong> tool resolves a referenced file by its name alone. To give another product the same geometry, copy the file under a different name and add that.</p></li>
+</ul>
+<h3 id="review-the-plan">Review the Plan</h3>
+<p>Nothing is created until you have seen what would be created. The second dialog lists the import item by item:</p>
+<figure>
+<img src="images/import_step_plan.png" title="Import Product Data from a STEP File Plan" alt="" /><figcaption>Import Product Data from a STEP File Plan</figcaption>
+</figure>
+<p>Each row is one thing the import proposes to do, and each has a checkbox. The columns are:</p>
+<ul>
+<li><p><strong>kind</strong> – what the item is: a <strong>product</strong> (a specification), a <strong>usage</strong> (a component in an assembly, at a particular reference designator), or a <strong>placement</strong> (where a component sits within its assembly).</p></li>
+<li><p><strong>status</strong> – what will happen to it:</p>
+<ul>
+<li><strong>create</strong> – a new product will be created for it.</li>
+<li><strong>use existing</strong> – a product already here will be used instead of creating another (see <strong>Reuse</strong> below).</li>
+<li><strong>matched</strong> – the occurrence was matched to a component the assembly already has, and will be placed.</li>
+<li><strong>no such component</strong> – the file has an occurrence at a reference designator this assembly does not have. Nothing will happen to it.</li>
+<li><strong>not in the file</strong> – the assembly has a component that the file does not, so there is nothing to place it by. Nothing will happen to it.</li>
+</ul></li>
+<li><p><strong>in the assembly</strong> – the reference designator, or the path within the file.</p></li>
+<li><p><strong>product type</strong> – for a newly created product, what kind of thing it is. <strong>STEP</strong> carries no notion of a product type, so every new product starts as <strong>unclassified</strong>; you can set a type on any row from the list of known product types. Leaving them <strong>unclassified</strong> is perfectly workable and can be corrected later.</p>
+<p>Setting them one row at a time gets tedious quickly on a real assembly, so the controls below the table set several at once: choose a type, then <strong>Apply to all</strong> to give it to every new product in the import, or <strong>Apply to selected</strong> to give it only to the rows you have selected.</p>
+<p>Select rows by clicking, and extend the selection with <strong>Shift</strong> or <strong>Ctrl</strong> as you would anywhere else; the <strong>SELECT ALL / CLEAR SELECTIONS</strong> box takes in every row at once, which is usually the quickest start – select everything, then <strong>Ctrl</strong>-click the few to leave out.</p>
+<p>Rows with no type to set – usages, placements, and products that will be reused – are simply skipped, so there is no need to leave them out of the selection. <strong>Apply to selected</strong> says in its tooltip how many products it will actually change, so you can see this for yourself.</p></li>
+</ul>
+<figure>
+<img src="images/import_step_apply_to_selected.png" title="Apply to selected" alt="" /><figcaption>Apply to selected</figcaption>
+</figure>
+<p>A sensible way to work through a large import is <strong>Apply to all</strong> with the commonest type first, then select the exceptions and apply the right type to those. * <strong>note</strong> – anything else worth knowing about the item.</p>
+<p>The last two statuses are informational, and are worth reading: they say what the import will <em>not</em> cover, which usually matters as much as what it will. A run of <strong>no such component</strong> rows generally means the file is a different design from the assembly, or that the reference designators do not agree.</p>
+<p>Click individual checkboxes to leave items out. An unconfirmed product also drops the usages that depend on it – a usage cannot be created with one end missing – so rejecting a product rejects everything below it.</p>
+<p>When creating products and structure with a project selected, the dialog may also offer to add the file’s top-level assembly to the project as a system:</p>
+<blockquote>
+<p><strong>Add “…” to project … as a system</strong></p>
+</blockquote>
+<p>This is offered only if you may add a system to the project – that is, if you may modify the project: a global administrator, or an <strong>Administrator</strong>, <strong>Lead Engineer</strong> or <strong>Systems Engineer</strong> on it. Adding a system is a statement about the shape of the project rather than about one subsystem, so a discipline engineer will not see the option. Neither will anyone working <strong>disconnected</strong>, since a project cannot be checked out.</p>
+<figure>
+<img src="images/import_step_add_to_project.png" title="Add to project" alt="" /><figcaption>Add to project</figcaption>
+</figure>
+<p>Leave this checked and the assembly will appear in the <strong>System Tree</strong>. Unchecked, the assembly is still created, but is reachable only through the <strong><a href="#systems-and-components-hardware-products-library">Systems and Components (Hardware Products) Library</a></strong>.</p>
+<p>Click <strong>OK</strong> and the import runs. Reading the file and creating the objects each show progress: a large assembly takes a noticeable amount of time, most of it in reading the file.</p>
+<h3 id="reuse">Reuse</h3>
+<p>A <strong>Product</strong> in <strong>Gargleblaster</strong> refers to a <em>specification</em>, not to a piece of hardware, and the <strong>owner</strong> of the specification is the <strong>Organization</strong> or <strong>Project</strong> that controls its Configuration Management. So the import will only offer to reuse a product that you are authorized to reuse: one that is <strong>public</strong>, or one belonging to the project you are working in. A similarly-named specification belonging to another project is never proposed for reuse; a new one is created instead.</p>
+<p>Note also that a <strong>STEP</strong> file carries no provenance – a part in it says nothing about who specified it – so matching is by name, and it is worth checking the <strong>use existing</strong> rows before accepting them.</p>
+<h3 id="the-file-is-kept">The File Is Kept</h3>
+<p>When products and structure are created from a file, the file itself is stored: it is linked to the new assembly as an <strong>MCAD Model</strong>, and uploaded to the repository so that others on the project can get it.</p>
+<p>The correspondence between the file and the objects created from it is also stored, so that a later import of the same file knows what was produced the first time. That correspondence is what the placement option reads: when you later choose <strong>Add 3D placement and orientation for the components of …</strong> and select a file that has changed since it was last imported for that assembly, <strong>Gargleblaster</strong> notices and asks before going on.</p>
+<!-- SCREENSHOT: the "file has changed" dialog -->
+<p>Note that this check pertains only to the <strong>placement</strong> option. Creating products and structure from a file does not consult a stored correspondence, because the products it creates are new ones: a stored file of the same name belongs to some earlier import and is not the file of the assembly being created.</p>
+<h3 id="a-file-that-has-already-been-imported">A File That Has Already Been Imported</h3>
+<p>When a <strong>STEP</strong> file is imported to create a model of a product, <strong>Gargleblaster</strong> stores the relationship between the created model, the product it represents, the name of the <strong>STEP</strong> file that produced it, and the copy of the file stored in the <strong>Gargleblaster</strong> file vault. Since two product models built from one file are not distinct, this re-import is not allowed.</p>
+<p>The check is by file content (bytes) <em>and</em> by file name, because they mean different things.</p>
+<p><strong>A file with contents that are identical to a previously imported file.</strong> If the file is byte-for-byte identical to one that has previously been imported – whatever it is called now – the import is refused, naming the product it produced and the project that is its designated owner. Two courses are open:</p>
+<ul>
+<li>if it represents the same product, use the one that already exists rather than creating a second;</li>
+<li>if it is meant to represent a distinct product, open the file in your <strong>CAD</strong> tool, ensure the product has a different name than any existing product owned by your project, export it as a <strong>STEP</strong> file that is named uniquely, and import that. It will then be managed as a distinct new product.</li>
+</ul>
+<p><strong>A file of the same name as one that has already been imported, but with different contents.</strong> Only you can say what it represents, so <strong>Gargleblaster</strong> asks whether it is:</p>
+<blockquote>
+<p>The product previously created and this file is a later revision of it, or</p>
+<p>A different product that happens to have the same file name</p>
+</blockquote>
+<p><em>A different product</em> is refused and cannot be overridden: since that file name is already linked to the earlier product, associating another product with the same name would cause confusion. Rename the file and import it again.</p>
+<p>Creating <em>the same product</em> with ownership by another project is refused with the same two courses as above – a product belongs to a single owner organization (project or other organization).</p>
+<p>Creating <em>the same product</em> within the current project is the one case that goes ahead, as a new <strong>version</strong> of that product. <strong>Gargleblaster</strong> shows you the version it carries now and asks what to call the new version:</p>
+<!-- SCREENSHOT: the "New version" dialog -->
+<p>The import then creates another product with the same <strong>id</strong> and <strong>name</strong>, the version identifier that you specify, and an iteration of 0. The existing version is left exactly as it is, with everything built on it.</p>
+<p>Only the assembled product is versioned. A component that has not changed is the same component: it keeps its own version, and the new version’s usages point at it rather than at a copy. So the file’s top-level components get new usages – they must, since the assembly they belong to is now the new version – while everything deeper is left as it stands, both ends of it being unchanged.</p>
+<h3 id="files-that-come-as-a-set">Files That Come as a Set</h3>
+<p>A <strong>CAD</strong> system may export an assembly as a <em>set</em> of files rather than as one: the assembly file names its subassembly and part files, and refers to them by name. Such a file cannot be read on its own – and the failure is a quiet one, in that the assembly would appear to import successfully but with its subassemblies empty.</p>
+<p><strong>Gargleblaster</strong> therefore checks first, and refuses the import if any referenced file is missing, naming the files it could not find:</p>
+<!-- SCREENSHOT: the "Referenced files are missing" dialog -->
+<p>To proceed, get the missing files from wherever the assembly file came from, and put them in the same directory as it, under exactly the names the message gives. Those are the names the file refers to them by, and a <strong>STEP</strong> reader finds them no other way.</p>
+<h3 id="units">Units</h3>
+<p><strong>STEP</strong> files record their own units, and a file exported in inches is as common as one exported in millimetres. The units are read from the file and all lengths are converted, so placements are recorded in metres regardless of what the file used.</p>
 <h2 id="define-a-concept-of-operations-conops-and-power-modes">Define a Concept of Operations (“ConOps”) and Power Modes</h2>
 <p>A <strong>ConOps</strong> defines the sequence of activities that constitute a <strong>Mission</strong>. The <strong>Lead Engineer</strong> and <strong>Systems Engineer</strong> for a project can use the <strong>ConOps Modeler</strong> to create a timeline on which the <strong>Mission</strong> <strong>Activities</strong> are defined, and each <strong>Activity</strong> can be assigned a <em>duration</em> and can be characterized by a <em>power mode</em>. The features of the <strong>ConOps Modeler</strong> interface are shown here:</p>
 <figure>
@@ -360,6 +476,51 @@ In the <strong>Create</strong> menu, select the option <strong>New System or Com
 </figure>
 <p>The graph can be saved as either a “.png” or “.pdf” file.</p>
 <p>Note that when one of the activities in the <strong>Timeline</strong> is a <strong>Cyclic Activity</strong>, only one cycle will be shown in the graph. The graph will show the <strong>Peak Power</strong> and <strong>Average Power</strong> values for the cycle. The <strong>ConOps Tool</strong> is also capable of defining cycles within cycles and graphing them, if a mission <strong>Timeline</strong> contains them.</p>
+<h2 id="work-while-disconnected-from-the-repository">Work While Disconnected from the Repository</h2>
+<p><strong>Gargleblaster</strong> keeps a local database, so it runs perfectly well with no connection to the repository. What changes when you are disconnected is not what you can <em>see</em> but what you may <em>edit</em>.</p>
+<h3 id="what-you-may-edit-offline">What You May Edit Offline</h3>
+<p>While disconnected, you may edit:</p>
+<ul>
+<li>objects <strong>you created on this machine</strong> that the repository has not yet seen; and</li>
+<li>objects you have <strong>checked out</strong>.</li>
+</ul>
+<p>Everything else is view-only until you reconnect. This is deliberate. The repository decides which version of an object wins by its modification time, and an edit you make offline carries the time you made it – so if a colleague changes the same object while you are away, your work is the older version when you reconnect, and it is discarded. Checking an object out first means no one else can change it, so the situation cannot arise.</p>
+<h3 id="check-out-the-items-you-intend-to-work-on">Check Out the Items You Intend to Work On</h3>
+<p>Do this <em>before</em> you disconnect – claims are granted by the repository, so you must be connected to make them, and a project must be selected. Select the <strong>Prepare for Offline Work …</strong> item in the <strong>Tools</strong> menu.</p>
+<!-- SCREENSHOT: Tools menu with "Prepare for Offline Work ..." highlighted -->
+<!-- SCREENSHOT: the "Prepare for Offline Work" dialog -->
+<p>The dialog asks for two things and then lists what you can claim:</p>
+<ul>
+<li><strong>Purpose</strong> – free text, shown to your collaborators. It is worth filling in: it is what someone else sees when they find an item claimed, and it is the difference between “checked out by you” and “checked out by you <em>for the thermal rework</em>”.</li>
+<li><strong>Claim expires after</strong> – between 1 and 90 days, 7 by default. This is a backstop for a claim you forget to release; see <strong>Check Items Back In When You Are Done</strong> below.</li>
+</ul>
+<p><strong>Available to check out</strong> lists the items you may claim, each with a checkbox, all checked initially; use <strong>Select All</strong> and <strong>Select None</strong> to set them together. <strong>Not available</strong> lists the ones you cannot, each with the reason: <em>already checked out by you</em>, <em>checked out by “someone”</em>, <em>frozen</em>, or <em>no permission to modify</em>.</p>
+<p>Some kinds of object are not offered at all, because they have no independent existence: <strong>Ports</strong>, <strong>Flows</strong>, <strong>Representation Files</strong>, and the objects that reify relationships. These are always created and edited as part of work on the thing that owns them, so claiming the owner covers them – checking out a <strong>Product</strong> covers its ports. <strong>Projects</strong> and the <strong>Person</strong> and <strong>Role</strong> objects are not work items and are not offered either.</p>
+<p>The objects a <strong>timeline</strong> is made of are not offered either, for a different reason: they cannot be edited offline at all. See <strong>Activities and Timelines</strong> below.</p>
+<p>Click <strong>OK</strong> and the claims are made. The repository decides authoritatively, applying the same permission rules, so occasionally an item the dialog offered comes back refused.</p>
+<h3 id="a-claim-is-exclusive">A Claim Is Exclusive</h3>
+<p>While an object is checked out, <strong>only the holder may modify it</strong> – online or offline, and including a <strong>Global Administrator</strong>. This is the same principle as a <strong>frozen</strong> object, where even an administrator gets no <strong>Edit</strong> button: the point of the claim is that the holder can rely on it.</p>
+<p>An administrator who genuinely needs a claimed object can force-release it, just as they would thaw a frozen object first.</p>
+<p>An object that is checked out shows a <strong>Checked Out</strong> indicator in the <strong><a href="#use-the-object-viewereditor">Object Viewer/Editor</a></strong>, reading <strong>Checked Out (you)</strong> if the claim is yours. Hovering over it names the holder, when the claim expires, and the purpose that was given for it.</p>
+<!-- SCREENSHOT: the Object Viewer/Editor showing the Checked Out indicator -->
+<h3 id="check-items-back-in-when-you-are-done">Check Items Back In When You Are Done</h3>
+<p>A claim is not meant to outlive the work it was made for. When you have finished with an item and are connected again, check it in, so that your colleagues can edit it.</p>
+<p>There are two ways to do it, and both need a connection – the repository is what records the release:</p>
+<ul>
+<li><p><strong>The Check In button</strong> in the <strong><a href="#use-the-object-viewereditor">Object Viewer/Editor</a></strong>, beside the <strong>Checked Out (you)</strong> indicator. It appears only on items you hold and only while you are connected.</p></li>
+<li><p><strong>When you save.</strong> If you save an item you have checked out, <strong>Gargleblaster</strong> asks whether to check it in as well. Saving and checking in are different things – a save records your edit, a check-in gives up the claim – but it is an easy assumption that saving does both, so you are asked rather than left to remember. If you would rather not be asked, the question has a <strong>Do not ask again</strong> box.</p></li>
+</ul>
+<!-- SCREENSHOT: the Object Viewer/Editor showing Checked Out (you) and Check In -->
+<p>The indicator and the <strong>Check In</strong> button appear on any item that can be checked out – <strong>Hardware Products</strong>, but also the component usages (<strong>Acus</strong>), <strong>Models</strong> and <strong>Documents</strong> that a claim on a product extends to, so a claim made on your behalf is visible and releasable wherever you meet it.</p>
+<h3 id="activities-and-timelines">Activities and Timelines</h3>
+<p><strong>Activities</strong> cannot be edited while disconnected, and cannot be checked out. Neither can the <strong>Decisions</strong> and <strong>Merges</strong> that branch and rejoin a sequence of them.</p>
+<p>This is not an oversight. An <strong>Activity</strong> is not an independent thing: its <em>duration</em> and its start and stop times are bound up with those of every other <strong>Activity</strong> in its timeline, and the <strong>ConOps Modeler</strong> adjusts the others as you change one. So a claim on a single activity would not cover the work – the whole timeline would have to be claimed, which is a different and larger idea than checking out an object. The same goes for the objects that sequence the activities.</p>
+<p>Rather than support that badly, <strong>Gargleblaster</strong> keeps timeline work online: the <strong>Mission Details</strong> table is read-only while you are disconnected, and the <strong>ConOps Modeler</strong> will not accept a dropped activity. Reconnect, and both work as usual.</p>
+<p>This may be revisited if offline timeline work turns out to be needed.</p>
+<h3 id="claims-expire">Claims Expire</h3>
+<p>A claim also lapses by itself when its expiry passes, and the item becomes editable by others again. Expiry is the backstop rather than the intended way to end a claim: choose it long enough to cover the work, check the item in when you are done, and if a claim is forgotten it will not block a colleague indefinitely. An administrator can also force-release a claim.</p>
+<h3 id="when-you-reconnect">When You Reconnect</h3>
+<p>Reconnecting syncs the current project: your offline edits are sent to the repository and anything that changed while you were away is fetched. Reconnecting does not release your claims – check them in, or let them expire.</p>
 <h2 id="use-local-db-mode-to-display-tables-and-export-to-files">Use Local DB Mode to Display Tables and Export to Files</h2>
 <p>Any row in the <strong>Objects</strong> table can be double-clicked to display that object in the <strong><a href="#access-the-object-viewereditor">Object Viewer/Editor</a></strong>. The <strong>Objects</strong> table can be sorted on any column by clicking on that column’s heading. Columns can be rearranged by drag/drop, and you can select which columns you want displayed for a given object type by right-clicking on the headers, which displays a context menu, and choosing the <strong>select columns</strong> option, which will display all the attributes of the current object type and you can just check the attributes you want to see and uncheck the ones to hide. <strong>Gargleblaster</strong> will remember your choices and will use them the next time you go into <strong>Local DB</strong> mode.</p>
 <h2 id="set-preferred-units">Set Preferred Units</h2>

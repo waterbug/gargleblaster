@@ -404,6 +404,287 @@ parameters.
 Note that in either case, whether a **white box** or **black box** clone is
 created, the clone will receive *all parameters* of the original object.
 
+## Import Product Model Data from a STEP File
+
+A **STEP** (**ISO 10303**) file, for which the valid extensions are *.stp*,
+*.step*, or *.p21*, is the standard data exchange format that **Mechanical
+CAD** systems export.  If a **CAD** model associated with a product design
+exists and has been exported to a **STEP** file, **Gargleblaster** can read that
+file and extract the **CAD** model it contains, and if the model includes the
+product's assembly structure, the exact position and orientation of each
+component within the assembly can be extracted and stored within
+**Gargleblaster**'s database.
+
+Note that component placements can be useful for purposes beyond simple
+visualization of the model:  the position and orientation of each component
+within a spacecraft assembly, in combination with mass properties, enables the
+mass distribution of that spacecraft to be computed, which, among other things,
+is one of the inputs required for an Attitude Control System simulation.
+
+To begin, there are 2 options:
+
+1. If there already exists a **HardwareProduct** object in **Gargleblaster** that the
+**CAD** model represents, open that object in the Object Viewer/Editor and use
+the "Add Model" button to add the **CAD** model.
+
+2. If there is not yet a **HardwareProduct** object in **Gargleblaster** for the
+item represented by the **CAD** model, select the **Import Product Data from a
+STEP File** item in the **Tools** menu, which is available in both the **System
+Modeler** and **Component Modeler** modes.
+
+![Tools / Import Product Data from a STEP File](images/import_step_menu_item.png "Tools / Import Product Data from a STEP File")
+
+### Choose the File and What the Import Should Do
+
+The initial dialog enables selection of the file and what should be done with it.
+
+![Import Product Data from a STEP File Dialog](images/import_step_dialog.png "Import Product Data from a STEP File Dialog")
+
+Click **Select STEP file ...** to choose the file, then choose one of three
+options:
+
+* **Add 3D placement and orientation for the components of "..."** -- the
+  assembly represented in the **STEP** model are exactly those of the item
+  currently selected in the **Gargleblaster** interface, and the item has the
+  same design as it exists in the **STEP** model.  Each occurrence in the file
+  is matched to a component the assembly already has, by **reference
+  designator**, and the position of each is recorded.  *No products are created
+  and no structure is changed* -- only placements are added.  This option is
+  available only when an assembly is selected *and* the file has components to
+  position.  When the **STEP** file has a single part and no assembly
+  structure, this option is disabled and says why.
+
+* **Create products and assembly structure from the file** -- use this option
+  for a **STEP** model of a product that does not yet exist in the repository.
+  A **HardwareProduct** instance is created to represent the product, and for
+  each distinct component in the product's assembly structure in the **STEP**
+  model, a **HardwareProduct** is created and its geometric placement in the
+  assembly is recorded in a reusable STEP format.
+
+* **Add the file as a CAD model of "..." , with no assembly structure** --
+  keep the geometry and nothing else.  The file becomes the selected
+  product's **MCAD Model**;  no products are proposed for what is inside it and
+  no assembly structure is created.  This option needs a product selected, but
+  unlike the placement option it does not need the file to contain an assembly.
+
+  This is often the most appropriate option even when the file *does* contain an
+  "assembly": the assembly may be synthetic -- e.g., its components may be
+  synthetic pieces used in a manufacturing process rather than distinctly
+  specified products.  Or the components may be real products that the file
+  does not identify.  In both cases the geometry is relevant but it is not
+  useful to separately save and identify its assembly's "component" items
+  within the repository.
+
+  The **Add Model** button in the object viewer/editor, for the **MCAD**
+  option, starts the same import on this option, for the object being viewed.
+
+  A file may be the model of **one** product.  If it already describes
+  another, the import is refused:  two products with the same geometry under
+  the same file name could not be told apart afterwards, since a **CAD** tool
+  resolves a referenced file by its name alone.  To give another product the
+  same geometry, copy the file under a different name and add that.
+
+### Review the Plan
+
+Nothing is created until you have seen what would be created.  The second
+dialog lists the import item by item:
+
+![Import Product Data from a STEP File Plan](images/import_step_plan.png "Import Product Data from a STEP File Plan")
+
+Each row is one thing the import proposes to do, and each has a checkbox.  The
+columns are:
+
+* **kind** -- what the item is:  a **product** (a specification), a **usage**
+  (a component in an assembly, at a particular reference designator), or a
+  **placement** (where a component sits within its assembly).
+* **status** -- what will happen to it:
+    * **create** -- a new product will be created for it.
+    * **use existing** -- a product already here will be used instead of
+      creating another (see **Reuse** below).
+    * **matched** -- the occurrence was matched to a component the assembly
+      already has, and will be placed.
+    * **no such component** -- the file has an occurrence at a reference
+      designator this assembly does not have.  Nothing will happen to it.
+    * **not in the file** -- the assembly has a component that the file does
+      not, so there is nothing to place it by.  Nothing will happen to it.
+* **in the assembly** -- the reference designator, or the path within the
+  file.
+* **product type** -- for a newly created product, what kind of thing it is.
+  **STEP** carries no notion of a product type, so every new product starts as
+  **unclassified**; you can set a type on any row from the list of known
+  product types.  Leaving them **unclassified** is perfectly workable and can
+  be corrected later.
+
+  Setting them one row at a time gets tedious quickly on a real assembly, so
+  the controls below the table set several at once:  choose a type, then
+  **Apply to all** to give it to every new product in the import, or
+  **Apply to selected** to give it only to the rows you have selected.
+
+  Select rows by clicking, and extend the selection with **Shift** or
+  **Ctrl** as you would anywhere else;  the **SELECT ALL / CLEAR
+  SELECTIONS** box takes in every row at once, which is usually the quickest
+  start -- select everything, then **Ctrl**-click the few to leave out.
+
+  Rows with no type to set -- usages, placements, and products that will be
+  reused -- are simply skipped, so there is no need to leave them out of the
+  selection.  **Apply to selected** says in its tooltip how many products it
+  will actually change, so you can see this for yourself.
+
+![Apply to selected](images/import_step_apply_to_selected.png "Apply to selected")
+
+  A sensible way to work through a large import is **Apply to all** with the
+  commonest type first, then select the exceptions and apply the right type
+  to those.
+* **note** -- anything else worth knowing about the item.
+
+The last two statuses are informational, and are worth reading:  they say what
+the import will *not* cover, which usually matters as much as what it will.  A
+run of **no such component** rows generally means the file is a different
+design from the assembly, or that the reference designators do not agree.
+
+Click individual checkboxes to leave items out.  An unconfirmed product also
+drops the usages that depend on it -- a usage cannot be created with one end
+missing -- so rejecting a product rejects everything below it.
+
+When creating products and structure with a project selected, the dialog may
+also offer to add the file's top-level assembly to the project as a system:
+
+> **Add "..." to project ... as a system**
+
+This is offered only if you may add a system to the project -- that is, if
+you may modify the project:  a global administrator, or an
+**Administrator**, **Lead Engineer** or **Systems Engineer** on it.  Adding a
+system is a statement about the shape of the project rather than about one
+subsystem, so a discipline engineer will not see the option.  Neither will
+anyone working **disconnected**, since a project cannot be checked out.
+
+![Add to project](images/import_step_add_to_project.png "Add to project")
+
+Leave this checked and the assembly will appear in the **System Tree**.
+Unchecked, the assembly is still created, but is reachable only through the
+**[Systems and Components (Hardware Products)
+Library](#systems-and-components-hardware-products-library)**.
+
+Click **OK** and the import runs.  Reading the file and creating the objects
+each show progress:  a large assembly takes a noticeable amount of time, most
+of it in reading the file.
+
+### Reuse
+
+A **Product** in **Gargleblaster** refers to a *specification*, not to a piece of
+hardware, and the **owner** of the specification is the **Organization** or
+**Project** that controls its Configuration Management.  So the import will
+only offer to reuse a product that you are authorized to reuse:  one that is
+**public**, or one belonging to the project you are working in.  A
+similarly-named specification belonging to another project is never proposed
+for reuse; a new one is created instead.
+
+Note also that a **STEP** file carries no provenance -- a part in it says
+nothing about who specified it -- so matching is by name, and it is worth
+checking the **use existing** rows before accepting them.
+
+### The File Is Kept
+
+When products and structure are created from a file, the file itself is
+stored:  it is linked to the new assembly as an **MCAD Model**, and
+uploaded to the repository so that others on the project can get it.
+
+The correspondence between the file and the objects created from it is also
+stored, so that a later import of the same file knows what was produced the
+first time.  That correspondence is what the placement option reads:  when you
+later choose **Add 3D placement and orientation for the components of ...**
+and select a file that has changed since it was last imported for that
+assembly, **Gargleblaster** notices and asks before going on.
+
+<!-- SCREENSHOT: the "file has changed" dialog -->
+
+Note that this check pertains only to the **placement** option.  Creating
+products and structure from a file does not consult a stored correspondence,
+because the products it creates are new ones:  a stored file of the same name
+belongs to some earlier import and is not the file of the assembly being
+created.
+
+### A File That Has Already Been Imported
+
+When a **STEP** file is imported to create a model of a product,
+**Gargleblaster** stores the relationship between the created model, the product
+it represents, the name of the **STEP** file that produced it, and the copy of
+the file stored in the **Gargleblaster** file vault.  Since two product models
+built from one file are not distinct, this re-import is not allowed.
+
+The check is by file content (bytes) *and* by file name, because they mean
+different things.
+
+**A file with contents that are identical to a previously imported file.**  If
+the file is byte-for-byte identical to one that has previously been imported --
+whatever it is called now -- the import is refused, naming the product it
+produced and the project that is its designated owner.  Two courses are open:
+
+* if it represents the same product, use the one that already exists rather
+  than creating a second;
+* if it is meant to represent a distinct product, open the file in your **CAD**
+  tool, ensure the product has a different name than any existing product owned
+  by your project, export it as a **STEP** file that is named uniquely, and
+  import that.  It will then be managed as a distinct new product.
+
+**A file of the same name as one that has already been imported, but with
+  different contents.**  Only you can say what it represents, so
+  **Gargleblaster** asks whether it is:
+
+> The product previously created and this file is a later revision of it, or
+>
+> A different product that happens to have the same file name
+
+*A different product* is refused and cannot be overridden:  since that file
+name is already linked to the earlier product, associating another product with
+the same name would cause confusion.  Rename the file and import it again.
+
+Creating *the same product* with ownership by another project is refused with
+the same two courses as above -- a product belongs to a single owner
+organization (project or other organization).
+
+Creating *the same product* within the current project is the one case that
+goes ahead, as a new **version** of that product.  **Gargleblaster** shows you
+the version it carries now and asks what to call the new version:
+
+<!-- SCREENSHOT: the "New version" dialog -->
+
+The import then creates another product with the same **id** and **name**, the
+version identifier that you specify, and an iteration of 0.  The existing
+version is left exactly as it is, with everything built on it.
+
+Only the assembled product is versioned.  A component that has not changed is
+the same component:  it keeps its own version, and the new version's usages
+point at it rather than at a copy.  So the file's top-level components get new
+usages -- they must, since the assembly they belong to is now the new version
+-- while everything deeper is left as it stands, both ends of it being
+unchanged.
+
+### Files That Come as a Set
+
+A **CAD** system may export an assembly as a *set* of files rather than as
+one:  the assembly file names its subassembly and part files, and refers to
+them by name.  Such a file cannot be read on its own -- and the failure is a
+quiet one, in that the assembly would appear to import successfully but with
+its subassemblies empty.
+
+**Gargleblaster** therefore checks first, and refuses the import if any
+referenced file is missing, naming the files it could not find:
+
+<!-- SCREENSHOT: the "Referenced files are missing" dialog -->
+
+To proceed, get the missing files from wherever the assembly file came from,
+and put them in the same directory as it, under exactly the names the message
+gives.  Those are the names the file refers to them by, and a **STEP** reader
+finds them no other way.
+
+### Units
+
+**STEP** files record their own units, and a file exported in inches is as
+common as one exported in millimetres.  The units are read from the file and
+all lengths are converted, so placements are recorded in metres regardless of
+what the file used.
+
 ## Define a Concept of Operations ("ConOps") and Power Modes
 
 A **ConOps** defines the sequence of activities that constitute a **Mission**.
@@ -572,6 +853,150 @@ Activity**, only one cycle will be shown in the graph.  The graph will show the
 is also capable of defining cycles within cycles and graphing them, if a
 mission **Timeline** contains them.
 
+
+## Work While Disconnected from the Repository
+
+**Gargleblaster** keeps a local database, so it runs perfectly well with no
+connection to the repository.  What changes when you are disconnected is not
+what you can *see* but what you may *edit*.
+
+### What You May Edit Offline
+
+While disconnected, you may edit:
+
+* objects **you created on this machine** that the repository has not yet
+  seen; and
+* objects you have **checked out**.
+
+Everything else is view-only until you reconnect.  This is deliberate.  The
+repository decides which version of an object wins by its modification time,
+and an edit you make offline carries the time you made it -- so if a
+colleague changes the same object while you are away, your work is the older
+version when you reconnect, and it is discarded.  Checking an object out
+first means no one else can change it, so the situation cannot arise.
+
+### Check Out the Items You Intend to Work On
+
+Do this *before* you disconnect -- claims are granted by the repository, so
+you must be connected to make them, and a project must be selected.  Select
+the **Prepare for Offline Work ...** item in the **Tools** menu.
+
+<!-- SCREENSHOT: Tools menu with "Prepare for Offline Work ..." highlighted -->
+
+<!-- SCREENSHOT: the "Prepare for Offline Work" dialog -->
+
+The dialog asks for two things and then lists what you can claim:
+
+* **Purpose** -- free text, shown to your collaborators.  It is worth
+  filling in:  it is what someone else sees when they find an item claimed,
+  and it is the difference between "checked out by you" and "checked out by
+  you *for the thermal rework*".
+* **Claim expires after** -- between 1 and 90 days, 7 by default.  This is a
+  backstop for a claim you forget to release; see **Check Items Back In When
+  You Are Done** below.
+
+**Available to check out** lists the items you may claim, each with a
+checkbox, all checked initially; use **Select All** and **Select None** to
+set them together.  **Not available** lists the ones you cannot, each with
+the reason:  *already checked out by you*, *checked out by "someone"*,
+*frozen*, or *no permission to modify*.
+
+Some kinds of object are not offered at all, because they have no
+independent existence:  **Ports**, **Flows**, **Representation Files**, and
+the objects that reify relationships.  These are always created and edited as
+part of work on the thing that owns them, so claiming the owner covers them
+-- checking out a **Product** covers its ports.  **Projects** and the
+**Person** and **Role** objects are not work items and are not offered
+either.
+
+The objects a **timeline** is made of are not offered either, for a
+different reason:  they cannot be edited offline at all.  See **Activities
+and Timelines** below.
+
+Click **OK** and the claims are made.  The repository decides
+authoritatively, applying the same permission rules, so occasionally an item
+the dialog offered comes back refused.
+
+### A Claim Is Exclusive
+
+While an object is checked out, **only the holder may modify it** -- online
+or offline, and including a **Global Administrator**.  This is the same
+principle as a **frozen** object, where even an administrator gets no
+**Edit** button:  the point of the claim is that the holder can rely on it.
+
+An administrator who genuinely needs a claimed object can force-release it,
+just as they would thaw a frozen object first.
+
+An object that is checked out shows a **Checked Out** indicator in the
+**[Object Viewer/Editor](#use-the-object-viewereditor)**, reading **Checked
+Out (you)** if the claim is yours.  Hovering over it names the holder, when
+the claim expires, and the purpose that was given for it.
+
+<!-- SCREENSHOT: the Object Viewer/Editor showing the Checked Out indicator -->
+
+### Check Items Back In When You Are Done
+
+A claim is not meant to outlive the work it was made for.  When you have
+finished with an item and are connected again, check it in, so that your
+colleagues can edit it.
+
+There are two ways to do it, and both need a connection -- the repository is
+what records the release:
+
+* **The Check In button** in the **[Object Viewer/Editor](#use-the-object-viewereditor)**,
+  beside the **Checked Out (you)** indicator.  It appears only on items you
+  hold and only while you are connected.
+
+* **When you save.**  If you save an item you have checked out,
+  **Gargleblaster** asks whether to check it in as well.  Saving and checking
+  in are different things -- a save records your edit, a check-in gives up
+  the claim -- but it is an easy assumption that saving does both, so you are
+  asked rather than left to remember.  If you would rather not be asked, the
+  question has a **Do not ask again** box.
+
+<!-- SCREENSHOT: the Object Viewer/Editor showing Checked Out (you) and Check In -->
+
+The indicator and the **Check In** button appear on any item that can be
+checked out -- **Hardware Products**, but also the component usages
+(**Acus**), **Models** and **Documents** that a claim on a product extends
+to, so a claim made on your behalf is visible and releasable wherever you
+meet it.
+
+### Activities and Timelines
+
+**Activities** cannot be edited while disconnected, and cannot be checked
+out.  Neither can the **Decisions** and **Merges** that branch and rejoin a
+sequence of them.
+
+This is not an oversight.  An **Activity** is not an independent thing:  its
+*duration* and its start and stop times are bound up with those of every
+other **Activity** in its timeline, and the **ConOps Modeler** adjusts the
+others as you change one.  So a claim on a single activity would not cover
+the work -- the whole timeline would have to be claimed, which is a
+different and larger idea than checking out an object.  The same goes for
+the objects that sequence the activities.
+
+Rather than support that badly, **Gargleblaster** keeps timeline work online:
+the **Mission Details** table is read-only while you are disconnected, and
+the **ConOps Modeler** will not accept a dropped activity.  Reconnect, and
+both work as usual.
+
+This may be revisited if offline timeline work turns out to be needed.
+
+### Claims Expire
+
+A claim also lapses by itself when its expiry passes, and the item becomes
+editable by others again.  Expiry is the backstop rather than the intended
+way to end a claim:  choose it long enough to cover the work, check the item
+in when you are done, and if a claim is forgotten it will not block a
+colleague indefinitely.  An administrator can also force-release a claim.
+
+### When You Reconnect
+
+Reconnecting syncs the current project:  your offline edits are sent to the
+repository and anything that changed while you were away is fetched.
+Reconnecting does not release your claims -- check them in, or let them
+expire.
 
 ## Use Local DB Mode to Display Tables and Export to Files
 
