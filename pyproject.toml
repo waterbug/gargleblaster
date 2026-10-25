@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gargleblaster"
-version = "4.4.dev3"
+version = "4.4.dev4"
 description = "Pan Galactic MBSE GUI"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -26,7 +26,7 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: CPython",
 ]
 dependencies = [
-    "pangalactic.node>=4.4.dev3",
+    "pangalactic.node>=4.4.dev4",
 ]
 
 # setup.py declared the same target under both console_scripts and
